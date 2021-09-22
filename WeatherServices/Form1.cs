@@ -15,10 +15,12 @@ namespace WeatherServices
         public WeatherService()
         {
             InitializeComponent();
+
             thermometer.Controls.Add(tempratureBar);
             tempratureBar.Height = 0;
             tempratureBar.Location = new Point(63, 430);
             tempratureBar.BackColor = Color.Transparent;
+
             thermometer.Controls.Add(colorBarFiller);
             colorBarFiller.Height = 0;
             colorBarFiller.Location = new Point(63, 430);
@@ -42,7 +44,7 @@ namespace WeatherServices
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int temp = -10;
+            int temp = 30;
             int heightGrowth = (temp+20) * 6;
             thermometer.Controls.Add(tempratureBar);
             tempratureBar.Height = heightGrowth;
@@ -54,6 +56,16 @@ namespace WeatherServices
                 colorBarFiller.Location = new Point(63, 442);
                 colorBarFiller.BackColor = Color.Transparent;
             }
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
