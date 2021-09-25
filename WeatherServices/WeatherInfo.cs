@@ -38,6 +38,7 @@ namespace WeatherServices
         public class root
         {
             public long timezone { get; set; }
+            public long dt { get; set; }
             public coord coord { get; set; }
             public List<weather> weather { get; set; }
             public main main { get; set; }

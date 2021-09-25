@@ -31,6 +31,7 @@ namespace WeatherServices
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WeatherService));
             this.thermometer = new System.Windows.Forms.PictureBox();
             this.tempratureBar = new System.Windows.Forms.PictureBox();
@@ -48,8 +49,12 @@ namespace WeatherServices
             this.labSunset = new System.Windows.Forms.Label();
             this.windSpeed = new System.Windows.Forms.Label();
             this.labPressure = new System.Windows.Forms.Label();
-            this.Date = new System.Windows.Forms.Label();
+            this.TimeOnSystem = new System.Windows.Forms.Label();
             this.picIcon = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.DateOnSystem = new System.Windows.Forms.Label();
+            this.Time = new System.Windows.Forms.Label();
+            this.ActualTimeInSerachedRegion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.thermometer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempratureBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorBarFiller)).BeginInit();
@@ -84,7 +89,7 @@ namespace WeatherServices
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.Black;
-            this.btnSearch.Location = new System.Drawing.Point(683, 101);
+            this.btnSearch.Location = new System.Drawing.Point(695, 62);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(90, 31);
             this.btnSearch.TabIndex = 3;
@@ -105,10 +110,11 @@ namespace WeatherServices
             // TBCity
             // 
             this.TBCity.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBCity.Location = new System.Drawing.Point(420, 101);
+            this.TBCity.Location = new System.Drawing.Point(432, 62);
             this.TBCity.Name = "TBCity";
             this.TBCity.Size = new System.Drawing.Size(238, 34);
             this.TBCity.TabIndex = 5;
+            this.TBCity.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TBCity_KeyDown);
             // 
             // city
             // 
@@ -116,7 +122,7 @@ namespace WeatherServices
             this.city.BackColor = System.Drawing.Color.Transparent;
             this.city.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.city.ForeColor = System.Drawing.Color.White;
-            this.city.Location = new System.Drawing.Point(344, 101);
+            this.city.Location = new System.Drawing.Point(356, 62);
             this.city.Name = "city";
             this.city.Size = new System.Drawing.Size(63, 33);
             this.city.TabIndex = 6;
@@ -128,7 +134,7 @@ namespace WeatherServices
             this.sunrise.BackColor = System.Drawing.Color.Transparent;
             this.sunrise.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sunrise.ForeColor = System.Drawing.Color.White;
-            this.sunrise.Location = new System.Drawing.Point(345, 313);
+            this.sunrise.Location = new System.Drawing.Point(357, 272);
             this.sunrise.Name = "sunrise";
             this.sunrise.Size = new System.Drawing.Size(91, 29);
             this.sunrise.TabIndex = 7;
@@ -140,7 +146,7 @@ namespace WeatherServices
             this.pressure.BackColor = System.Drawing.Color.Transparent;
             this.pressure.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pressure.ForeColor = System.Drawing.Color.White;
-            this.pressure.Location = new System.Drawing.Point(569, 272);
+            this.pressure.Location = new System.Drawing.Point(549, 235);
             this.pressure.Name = "pressure";
             this.pressure.Size = new System.Drawing.Size(102, 29);
             this.pressure.TabIndex = 8;
@@ -152,7 +158,7 @@ namespace WeatherServices
             this.labSunrise.BackColor = System.Drawing.Color.Transparent;
             this.labSunrise.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labSunrise.ForeColor = System.Drawing.Color.White;
-            this.labSunrise.Location = new System.Drawing.Point(461, 313);
+            this.labSunrise.Location = new System.Drawing.Point(454, 272);
             this.labSunrise.Name = "labSunrise";
             this.labSunrise.Size = new System.Drawing.Size(51, 29);
             this.labSunrise.TabIndex = 9;
@@ -164,7 +170,7 @@ namespace WeatherServices
             this.labWindSpeed.BackColor = System.Drawing.Color.Transparent;
             this.labWindSpeed.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labWindSpeed.ForeColor = System.Drawing.Color.White;
-            this.labWindSpeed.Location = new System.Drawing.Point(708, 230);
+            this.labWindSpeed.Location = new System.Drawing.Point(700, 191);
             this.labWindSpeed.Name = "labWindSpeed";
             this.labWindSpeed.Size = new System.Drawing.Size(51, 29);
             this.labWindSpeed.TabIndex = 10;
@@ -176,7 +182,7 @@ namespace WeatherServices
             this.labDetails.BackColor = System.Drawing.Color.Transparent;
             this.labDetails.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labDetails.ForeColor = System.Drawing.Color.White;
-            this.labDetails.Location = new System.Drawing.Point(345, 272);
+            this.labDetails.Location = new System.Drawing.Point(357, 235);
             this.labDetails.Name = "labDetails";
             this.labDetails.Size = new System.Drawing.Size(81, 29);
             this.labDetails.TabIndex = 11;
@@ -188,7 +194,7 @@ namespace WeatherServices
             this.sunset.BackColor = System.Drawing.Color.Transparent;
             this.sunset.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sunset.ForeColor = System.Drawing.Color.White;
-            this.sunset.Location = new System.Drawing.Point(427, 381);
+            this.sunset.Location = new System.Drawing.Point(357, 312);
             this.sunset.Name = "sunset";
             this.sunset.Size = new System.Drawing.Size(85, 29);
             this.sunset.TabIndex = 12;
@@ -200,7 +206,7 @@ namespace WeatherServices
             this.labCondition.BackColor = System.Drawing.Color.Transparent;
             this.labCondition.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labCondition.ForeColor = System.Drawing.Color.White;
-            this.labCondition.Location = new System.Drawing.Point(345, 231);
+            this.labCondition.Location = new System.Drawing.Point(357, 192);
             this.labCondition.Name = "labCondition";
             this.labCondition.Size = new System.Drawing.Size(110, 29);
             this.labCondition.TabIndex = 13;
@@ -212,7 +218,7 @@ namespace WeatherServices
             this.labSunset.BackColor = System.Drawing.Color.Transparent;
             this.labSunset.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labSunset.ForeColor = System.Drawing.Color.White;
-            this.labSunset.Location = new System.Drawing.Point(566, 381);
+            this.labSunset.Location = new System.Drawing.Point(454, 312);
             this.labSunset.Name = "labSunset";
             this.labSunset.Size = new System.Drawing.Size(51, 29);
             this.labSunset.TabIndex = 14;
@@ -224,7 +230,7 @@ namespace WeatherServices
             this.windSpeed.BackColor = System.Drawing.Color.Transparent;
             this.windSpeed.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.windSpeed.ForeColor = System.Drawing.Color.White;
-            this.windSpeed.Location = new System.Drawing.Point(569, 230);
+            this.windSpeed.Location = new System.Drawing.Point(546, 191);
             this.windSpeed.Name = "windSpeed";
             this.windSpeed.Size = new System.Drawing.Size(138, 29);
             this.windSpeed.TabIndex = 15;
@@ -236,34 +242,76 @@ namespace WeatherServices
             this.labPressure.BackColor = System.Drawing.Color.Transparent;
             this.labPressure.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labPressure.ForeColor = System.Drawing.Color.White;
-            this.labPressure.Location = new System.Drawing.Point(708, 272);
+            this.labPressure.Location = new System.Drawing.Point(700, 235);
             this.labPressure.Name = "labPressure";
             this.labPressure.Size = new System.Drawing.Size(51, 29);
             this.labPressure.TabIndex = 16;
             this.labPressure.Text = "N/A";
             // 
-            // Date
+            // TimeOnSystem
             // 
-            this.Date.AutoSize = true;
-            this.Date.BackColor = System.Drawing.Color.Transparent;
-            this.Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Date.ForeColor = System.Drawing.Color.White;
-            this.Date.Location = new System.Drawing.Point(730, 9);
-            this.Date.Name = "Date";
-            this.Date.Size = new System.Drawing.Size(96, 26);
-            this.Date.TabIndex = 17;
-            this.Date.Text = "00:00:00";
+            this.TimeOnSystem.AutoSize = true;
+            this.TimeOnSystem.BackColor = System.Drawing.Color.Transparent;
+            this.TimeOnSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeOnSystem.ForeColor = System.Drawing.Color.White;
+            this.TimeOnSystem.Location = new System.Drawing.Point(730, 9);
+            this.TimeOnSystem.Name = "TimeOnSystem";
+            this.TimeOnSystem.Size = new System.Drawing.Size(96, 26);
+            this.TimeOnSystem.TabIndex = 17;
+            this.TimeOnSystem.Text = "00:00:00";
+            this.TimeOnSystem.Click += new System.EventHandler(this.TimeOnSystem_Click);
             // 
             // picIcon
             // 
             this.picIcon.BackColor = System.Drawing.Color.Transparent;
             this.picIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picIcon.Location = new System.Drawing.Point(350, 141);
+            this.picIcon.Location = new System.Drawing.Point(362, 102);
             this.picIcon.Name = "picIcon";
             this.picIcon.Size = new System.Drawing.Size(123, 87);
             this.picIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picIcon.TabIndex = 18;
             this.picIcon.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // DateOnSystem
+            // 
+            this.DateOnSystem.AutoSize = true;
+            this.DateOnSystem.BackColor = System.Drawing.Color.Transparent;
+            this.DateOnSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateOnSystem.ForeColor = System.Drawing.Color.White;
+            this.DateOnSystem.Location = new System.Drawing.Point(600, 9);
+            this.DateOnSystem.Name = "DateOnSystem";
+            this.DateOnSystem.Size = new System.Drawing.Size(124, 26);
+            this.DateOnSystem.TabIndex = 19;
+            this.DateOnSystem.Text = "DD:MM:YY";
+            // 
+            // Time
+            // 
+            this.Time.AutoSize = true;
+            this.Time.BackColor = System.Drawing.Color.Transparent;
+            this.Time.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Time.ForeColor = System.Drawing.Color.White;
+            this.Time.Location = new System.Drawing.Point(549, 272);
+            this.Time.Name = "Time";
+            this.Time.Size = new System.Drawing.Size(68, 29);
+            this.Time.TabIndex = 20;
+            this.Time.Text = "Time:";
+            // 
+            // ActualTimeInSerachedRegion
+            // 
+            this.ActualTimeInSerachedRegion.AutoSize = true;
+            this.ActualTimeInSerachedRegion.BackColor = System.Drawing.Color.Transparent;
+            this.ActualTimeInSerachedRegion.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ActualTimeInSerachedRegion.ForeColor = System.Drawing.Color.White;
+            this.ActualTimeInSerachedRegion.Location = new System.Drawing.Point(700, 272);
+            this.ActualTimeInSerachedRegion.Name = "ActualTimeInSerachedRegion";
+            this.ActualTimeInSerachedRegion.Size = new System.Drawing.Size(51, 29);
+            this.ActualTimeInSerachedRegion.TabIndex = 21;
+            this.ActualTimeInSerachedRegion.Text = "N/A";
             // 
             // WeatherService
             // 
@@ -272,8 +320,11 @@ namespace WeatherServices
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(838, 515);
+            this.Controls.Add(this.ActualTimeInSerachedRegion);
+            this.Controls.Add(this.Time);
+            this.Controls.Add(this.DateOnSystem);
             this.Controls.Add(this.picIcon);
-            this.Controls.Add(this.Date);
+            this.Controls.Add(this.TimeOnSystem);
             this.Controls.Add(this.labPressure);
             this.Controls.Add(this.windSpeed);
             this.Controls.Add(this.labSunset);
@@ -324,8 +375,12 @@ namespace WeatherServices
         private System.Windows.Forms.Label labSunset;
         private System.Windows.Forms.Label windSpeed;
         private System.Windows.Forms.Label labPressure;
-        private System.Windows.Forms.Label Date;
+        private System.Windows.Forms.Label TimeOnSystem;
         private System.Windows.Forms.PictureBox picIcon;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label DateOnSystem;
+        private System.Windows.Forms.Label Time;
+        private System.Windows.Forms.Label ActualTimeInSerachedRegion;
     }
 }
 

@@ -21,8 +21,10 @@ namespace WeatherServices
             colorBarFiller.Height = 0;
             colorBarFiller.Location = new Point(63, 430);
             colorBarFiller.BackColor = Color.Transparent;
-        }
 
+            DateOnSystem.Text = DateTime.Now.ToShortDateString();
+            timer1.Start();
+        }
         private string APIKey = "a1f1e8e1ec3f72586c9f03df67514782";
 
         public void GetThermometer()
@@ -48,12 +50,17 @@ namespace WeatherServices
                 labSunset.Text = ConvertDateTime(Info.sys.sunset, Info.timezone).ToShortTimeString();
                 labSunrise.Text = ConvertDateTime(Info.sys.sunrise, Info.timezone).ToShortTimeString();
 
+                ActualTimeInSerachedRegion.Text = ConvertDateTime(Info.dt, Info.timezone).ToLongTimeString();
+                
                 labWindSpeed.Text = Info.wind.speed.ToString();
                 labPressure.Text = Info.main.pressure.ToString();
 
                 ChangeTempInThermometer(Info.main.temp);
+
+                
             }
         }
+        
 
         private void ChangeTempInThermometer(double temp)
         {
@@ -76,6 +83,29 @@ namespace WeatherServices
             DateTime day = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
             day = day.AddSeconds(sec + timezone);
             return day;
+        }
+
+        private void TBCity_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                    GetWeather();                
+            }
+           
+        }
+
+        private void TimeOnSystem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            TimeOnSystem.Text = DateTime.Now.ToLongTimeString();
+            if(ActualTimeInSerachedRegion.Text != "N/A")
+            {
+                ActualTimeInSerachedRegion.Text = Convert.ToDateTime(ActualTimeInSerachedRegion.Text).AddSeconds(1).ToShortTimeString();
+            }
         }
     }
 }
