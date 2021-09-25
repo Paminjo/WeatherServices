@@ -25,12 +25,9 @@ namespace WeatherServices
 
         private string APIKey = "a1f1e8e1ec3f72586c9f03df67514782";
 
-
-            public void GetThermometer()
-            {
-
-            }
-        
+        public void GetThermometer()
+        {
+        }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -54,24 +51,30 @@ namespace WeatherServices
                 labWindSpeed.Text = Info.wind.speed.ToString();
                 labPressure.Text = Info.main.pressure.ToString();
 
-                double temp = Info.main.temp-273.15;
-                double heightGrowth = (temp + 20) * 6;
-                thermometer.Controls.Add(tempratureBar);
-                tempratureBar.Height = Convert.ToInt32(heightGrowth);
-                tempratureBar.Location = new Point(63, 472 - Convert.ToInt32(heightGrowth));
-                tempratureBar.BackColor = Color.Transparent;
-                if (temp > 0)
-                {
-                    colorBarFiller.Height = 30;
-                    colorBarFiller.Location = new Point(63, 442);
-                    colorBarFiller.BackColor = Color.Transparent;
-                }
+                ChangeTempInThermometer(Info.main.temp);
             }
         }
-        DateTime ConvertDateTime(long sec, long timezone)
-        {         
+
+        private void ChangeTempInThermometer(double temp)
+        {
+            temp = temp - 273.15;
+            double heightGrowth = (temp + 20) * 6;
+            thermometer.Controls.Add(tempratureBar);
+            tempratureBar.Height = Convert.ToInt32(heightGrowth);
+            tempratureBar.Location = new Point(63, 472 - Convert.ToInt32(heightGrowth));
+            tempratureBar.BackColor = Color.Transparent;
+            if (temp > 0)
+            {
+                colorBarFiller.Height = 30;
+                colorBarFiller.Location = new Point(63, 442);
+                colorBarFiller.BackColor = Color.Transparent;
+            }
+        }
+
+        private DateTime ConvertDateTime(long sec, long timezone)
+        {
             DateTime day = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-            day = day.AddSeconds(sec+timezone);
+            day = day.AddSeconds(sec + timezone);
             return day;
         }
     }
