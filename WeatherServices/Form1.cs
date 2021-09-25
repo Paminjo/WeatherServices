@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using Newtonsoft.Json;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
 using System.Windows.Forms;
 
 namespace WeatherServices
@@ -25,32 +21,19 @@ namespace WeatherServices
             colorBarFiller.Height = 0;
             colorBarFiller.Location = new Point(63, 430);
             colorBarFiller.BackColor = Color.Transparent;
-
         }
 
+        private string APIKey = "a1f1e8e1ec3f72586c9f03df67514782";
 
-
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void label7_Click(object sender, EventArgs e)
         {
             int temp = 30;
-            int heightGrowth = (temp+20) * 6;
+            int heightGrowth = (temp + 20) * 6;
             thermometer.Controls.Add(tempratureBar);
             tempratureBar.Height = heightGrowth;
-            tempratureBar.Location = new Point(63, 472-heightGrowth);
+            tempratureBar.Location = new Point(63, 472 - heightGrowth);
             tempratureBar.BackColor = Color.Transparent;
-            if(temp > 0)
+            if (temp > 0)
             {
                 colorBarFiller.Height = 30;
                 colorBarFiller.Location = new Point(63, 442);
@@ -58,14 +41,34 @@ namespace WeatherServices
             }
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            GetWeather();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void GetWeather()
         {
+            using (WebClient web = new WebClient())
+            {
+                string url = string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}", TBCity.Text, APIKey);
+                var json = web.DownloadString(url);
+                WeatherInfo.root Info = JsonConvert.DeserializeObject<WeatherInfo.root>(json);
 
+                picIcon.ImageLocation = "https://api.openweathermap.org/img/w/" + Info.weather[0].icon + ".png";
+                labCondition.Text = Info.weather[0].main;
+                labDetails.Text = Info.weather[0].description;
+                labSunset.Text = ConvertDateTime(Info.sys.sunset).ToShortTimeString();
+                labSunrise.Text = ConvertDateTime(Info.sys.sunrise).ToShortTimeString();
+
+                labWindSpeed.Text = Info.wind.speed.ToString();
+                labPressure.Text = Info.main.pressure.ToString();
+            }
+        }
+        DateTime ConvertDateTime(long sec)
+        {
+            DateTime day = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc).ToLocalTime();
+            day = day.AddSeconds(sec).ToLocalTime();
+            return day;
         }
     }
 }

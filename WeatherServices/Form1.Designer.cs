@@ -34,23 +34,26 @@ namespace WeatherServices
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WeatherService));
             this.thermometer = new System.Windows.Forms.PictureBox();
             this.tempratureBar = new System.Windows.Forms.PictureBox();
-            this.searchRegion = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.colorBarFiller = new System.Windows.Forms.PictureBox();
-            this.stadtnamenEingabe = new System.Windows.Forms.TextBox();
+            this.TBCity = new System.Windows.Forms.TextBox();
             this.city = new System.Windows.Forms.Label();
             this.sunrise = new System.Windows.Forms.Label();
             this.pressure = new System.Windows.Forms.Label();
-            this.sunriseTime = new System.Windows.Forms.Label();
-            this.windSpeedValue = new System.Windows.Forms.Label();
-            this.details = new System.Windows.Forms.Label();
+            this.labSunrise = new System.Windows.Forms.Label();
+            this.labWindSpeed = new System.Windows.Forms.Label();
+            this.labDetails = new System.Windows.Forms.Label();
             this.sunset = new System.Windows.Forms.Label();
-            this.condition = new System.Windows.Forms.Label();
-            this.sunsetTime = new System.Windows.Forms.Label();
+            this.labCondition = new System.Windows.Forms.Label();
+            this.labSunset = new System.Windows.Forms.Label();
             this.windSpeed = new System.Windows.Forms.Label();
-            this.pressureValue = new System.Windows.Forms.Label();
+            this.labPressure = new System.Windows.Forms.Label();
+            this.Date = new System.Windows.Forms.Label();
+            this.picIcon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.thermometer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempratureBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorBarFiller)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // thermometer
@@ -63,7 +66,6 @@ namespace WeatherServices
             this.thermometer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.thermometer.TabIndex = 1;
             this.thermometer.TabStop = false;
-            this.thermometer.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // tempratureBar
             // 
@@ -75,17 +77,20 @@ namespace WeatherServices
             this.tempratureBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.tempratureBar.TabIndex = 2;
             this.tempratureBar.TabStop = false;
-            this.tempratureBar.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // searchRegion
+            // btnSearch
             // 
-            this.searchRegion.Location = new System.Drawing.Point(676, 61);
-            this.searchRegion.Name = "searchRegion";
-            this.searchRegion.Size = new System.Drawing.Size(75, 31);
-            this.searchRegion.TabIndex = 3;
-            this.searchRegion.Text = "Search";
-            this.searchRegion.UseVisualStyleBackColor = true;
-            this.searchRegion.Click += new System.EventHandler(this.button1_Click);
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.Black;
+            this.btnSearch.Location = new System.Drawing.Point(683, 101);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(90, 31);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // colorBarFiller
             // 
@@ -97,152 +102,202 @@ namespace WeatherServices
             this.colorBarFiller.TabIndex = 4;
             this.colorBarFiller.TabStop = false;
             // 
-            // stadtnamenEingabe
+            // TBCity
             // 
-            this.stadtnamenEingabe.Location = new System.Drawing.Point(413, 61);
-            this.stadtnamenEingabe.Multiline = true;
-            this.stadtnamenEingabe.Name = "stadtnamenEingabe";
-            this.stadtnamenEingabe.Size = new System.Drawing.Size(238, 31);
-            this.stadtnamenEingabe.TabIndex = 5;
+            this.TBCity.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBCity.Location = new System.Drawing.Point(420, 101);
+            this.TBCity.Name = "TBCity";
+            this.TBCity.Size = new System.Drawing.Size(238, 34);
+            this.TBCity.TabIndex = 5;
             // 
             // city
             // 
             this.city.AutoSize = true;
-            this.city.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.city.Location = new System.Drawing.Point(337, 61);
+            this.city.BackColor = System.Drawing.Color.Transparent;
+            this.city.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.city.ForeColor = System.Drawing.Color.White;
+            this.city.Location = new System.Drawing.Point(344, 101);
             this.city.Name = "city";
-            this.city.Size = new System.Drawing.Size(70, 31);
+            this.city.Size = new System.Drawing.Size(63, 33);
             this.city.TabIndex = 6;
             this.city.Text = "City:";
             // 
             // sunrise
             // 
             this.sunrise.AutoSize = true;
-            this.sunrise.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sunrise.Location = new System.Drawing.Point(338, 324);
+            this.sunrise.BackColor = System.Drawing.Color.Transparent;
+            this.sunrise.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sunrise.ForeColor = System.Drawing.Color.White;
+            this.sunrise.Location = new System.Drawing.Point(345, 313);
             this.sunrise.Name = "sunrise";
-            this.sunrise.Size = new System.Drawing.Size(92, 26);
+            this.sunrise.Size = new System.Drawing.Size(91, 29);
             this.sunrise.TabIndex = 7;
             this.sunrise.Text = "Sunrise:";
             // 
             // pressure
             // 
             this.pressure.AutoSize = true;
-            this.pressure.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pressure.Location = new System.Drawing.Point(548, 236);
+            this.pressure.BackColor = System.Drawing.Color.Transparent;
+            this.pressure.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pressure.ForeColor = System.Drawing.Color.White;
+            this.pressure.Location = new System.Drawing.Point(569, 272);
             this.pressure.Name = "pressure";
-            this.pressure.Size = new System.Drawing.Size(99, 26);
+            this.pressure.Size = new System.Drawing.Size(102, 29);
             this.pressure.TabIndex = 8;
-            this.pressure.Text = "Pressure";
+            this.pressure.Text = "Pressure:";
             // 
-            // sunriseTime
+            // labSunrise
             // 
-            this.sunriseTime.AutoSize = true;
-            this.sunriseTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sunriseTime.Location = new System.Drawing.Point(436, 324);
-            this.sunriseTime.Name = "sunriseTime";
-            this.sunriseTime.Size = new System.Drawing.Size(49, 26);
-            this.sunriseTime.TabIndex = 9;
-            this.sunriseTime.Text = "N/A";
+            this.labSunrise.AutoSize = true;
+            this.labSunrise.BackColor = System.Drawing.Color.Transparent;
+            this.labSunrise.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labSunrise.ForeColor = System.Drawing.Color.White;
+            this.labSunrise.Location = new System.Drawing.Point(461, 313);
+            this.labSunrise.Name = "labSunrise";
+            this.labSunrise.Size = new System.Drawing.Size(51, 29);
+            this.labSunrise.TabIndex = 9;
+            this.labSunrise.Text = "N/A";
             // 
-            // windSpeedValue
+            // labWindSpeed
             // 
-            this.windSpeedValue.AutoSize = true;
-            this.windSpeedValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.windSpeedValue.Location = new System.Drawing.Point(702, 186);
-            this.windSpeedValue.Name = "windSpeedValue";
-            this.windSpeedValue.Size = new System.Drawing.Size(49, 26);
-            this.windSpeedValue.TabIndex = 10;
-            this.windSpeedValue.Text = "N/A";
+            this.labWindSpeed.AutoSize = true;
+            this.labWindSpeed.BackColor = System.Drawing.Color.Transparent;
+            this.labWindSpeed.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labWindSpeed.ForeColor = System.Drawing.Color.White;
+            this.labWindSpeed.Location = new System.Drawing.Point(708, 230);
+            this.labWindSpeed.Name = "labWindSpeed";
+            this.labWindSpeed.Size = new System.Drawing.Size(51, 29);
+            this.labWindSpeed.TabIndex = 10;
+            this.labWindSpeed.Text = "N/A";
             // 
-            // details
+            // labDetails
             // 
-            this.details.AutoSize = true;
-            this.details.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.details.Location = new System.Drawing.Point(338, 236);
-            this.details.Name = "details";
-            this.details.Size = new System.Drawing.Size(79, 26);
-            this.details.TabIndex = 11;
-            this.details.Text = "Details";
-            this.details.Click += new System.EventHandler(this.label5_Click);
+            this.labDetails.AutoSize = true;
+            this.labDetails.BackColor = System.Drawing.Color.Transparent;
+            this.labDetails.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labDetails.ForeColor = System.Drawing.Color.White;
+            this.labDetails.Location = new System.Drawing.Point(345, 272);
+            this.labDetails.Name = "labDetails";
+            this.labDetails.Size = new System.Drawing.Size(81, 29);
+            this.labDetails.TabIndex = 11;
+            this.labDetails.Text = "Details";
             // 
             // sunset
             // 
             this.sunset.AutoSize = true;
-            this.sunset.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sunset.Location = new System.Drawing.Point(338, 368);
+            this.sunset.BackColor = System.Drawing.Color.Transparent;
+            this.sunset.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sunset.ForeColor = System.Drawing.Color.White;
+            this.sunset.Location = new System.Drawing.Point(568, 313);
             this.sunset.Name = "sunset";
-            this.sunset.Size = new System.Drawing.Size(86, 26);
+            this.sunset.Size = new System.Drawing.Size(85, 29);
             this.sunset.TabIndex = 12;
             this.sunset.Text = "Sunset:";
             // 
-            // condition
+            // labCondition
             // 
-            this.condition.AutoSize = true;
-            this.condition.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.condition.Location = new System.Drawing.Point(338, 186);
-            this.condition.Name = "condition";
-            this.condition.Size = new System.Drawing.Size(104, 26);
-            this.condition.TabIndex = 13;
-            this.condition.Text = "Condition";
-            this.condition.Click += new System.EventHandler(this.label7_Click);
+            this.labCondition.AutoSize = true;
+            this.labCondition.BackColor = System.Drawing.Color.Transparent;
+            this.labCondition.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labCondition.ForeColor = System.Drawing.Color.White;
+            this.labCondition.Location = new System.Drawing.Point(345, 231);
+            this.labCondition.Name = "labCondition";
+            this.labCondition.Size = new System.Drawing.Size(110, 29);
+            this.labCondition.TabIndex = 13;
+            this.labCondition.Text = "Condition";
+            this.labCondition.Click += new System.EventHandler(this.label7_Click);
             // 
-            // sunsetTime
+            // labSunset
             // 
-            this.sunsetTime.AutoSize = true;
-            this.sunsetTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sunsetTime.Location = new System.Drawing.Point(436, 368);
-            this.sunsetTime.Name = "sunsetTime";
-            this.sunsetTime.Size = new System.Drawing.Size(49, 26);
-            this.sunsetTime.TabIndex = 14;
-            this.sunsetTime.Text = "N/A";
+            this.labSunset.AutoSize = true;
+            this.labSunset.BackColor = System.Drawing.Color.Transparent;
+            this.labSunset.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labSunset.ForeColor = System.Drawing.Color.White;
+            this.labSunset.Location = new System.Drawing.Point(707, 313);
+            this.labSunset.Name = "labSunset";
+            this.labSunset.Size = new System.Drawing.Size(51, 29);
+            this.labSunset.TabIndex = 14;
+            this.labSunset.Text = "N/A";
             // 
             // windSpeed
             // 
             this.windSpeed.AutoSize = true;
-            this.windSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.windSpeed.Location = new System.Drawing.Point(548, 186);
+            this.windSpeed.BackColor = System.Drawing.Color.Transparent;
+            this.windSpeed.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.windSpeed.ForeColor = System.Drawing.Color.White;
+            this.windSpeed.Location = new System.Drawing.Point(569, 230);
             this.windSpeed.Name = "windSpeed";
-            this.windSpeed.Size = new System.Drawing.Size(131, 26);
+            this.windSpeed.Size = new System.Drawing.Size(138, 29);
             this.windSpeed.TabIndex = 15;
-            this.windSpeed.Text = "Wind Speed";
+            this.windSpeed.Text = "Wind Speed:";
             // 
-            // pressureValue
+            // labPressure
             // 
-            this.pressureValue.AutoSize = true;
-            this.pressureValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pressureValue.Location = new System.Drawing.Point(702, 236);
-            this.pressureValue.Name = "pressureValue";
-            this.pressureValue.Size = new System.Drawing.Size(49, 26);
-            this.pressureValue.TabIndex = 16;
-            this.pressureValue.Text = "N/A";
+            this.labPressure.AutoSize = true;
+            this.labPressure.BackColor = System.Drawing.Color.Transparent;
+            this.labPressure.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labPressure.ForeColor = System.Drawing.Color.White;
+            this.labPressure.Location = new System.Drawing.Point(708, 272);
+            this.labPressure.Name = "labPressure";
+            this.labPressure.Size = new System.Drawing.Size(51, 29);
+            this.labPressure.TabIndex = 16;
+            this.labPressure.Text = "N/A";
+            // 
+            // Date
+            // 
+            this.Date.AutoSize = true;
+            this.Date.BackColor = System.Drawing.Color.Transparent;
+            this.Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Date.ForeColor = System.Drawing.Color.White;
+            this.Date.Location = new System.Drawing.Point(730, 9);
+            this.Date.Name = "Date";
+            this.Date.Size = new System.Drawing.Size(96, 26);
+            this.Date.TabIndex = 17;
+            this.Date.Text = "00:00:00";
+            // 
+            // picIcon
+            // 
+            this.picIcon.BackColor = System.Drawing.Color.Transparent;
+            this.picIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picIcon.Location = new System.Drawing.Point(350, 141);
+            this.picIcon.Name = "picIcon";
+            this.picIcon.Size = new System.Drawing.Size(123, 87);
+            this.picIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picIcon.TabIndex = 18;
+            this.picIcon.TabStop = false;
             // 
             // WeatherService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(838, 515);
-            this.Controls.Add(this.pressureValue);
+            this.Controls.Add(this.picIcon);
+            this.Controls.Add(this.Date);
+            this.Controls.Add(this.labPressure);
             this.Controls.Add(this.windSpeed);
-            this.Controls.Add(this.sunsetTime);
-            this.Controls.Add(this.condition);
+            this.Controls.Add(this.labSunset);
+            this.Controls.Add(this.labCondition);
             this.Controls.Add(this.sunset);
-            this.Controls.Add(this.details);
-            this.Controls.Add(this.windSpeedValue);
-            this.Controls.Add(this.sunriseTime);
+            this.Controls.Add(this.labDetails);
+            this.Controls.Add(this.labWindSpeed);
+            this.Controls.Add(this.labSunrise);
             this.Controls.Add(this.pressure);
             this.Controls.Add(this.sunrise);
             this.Controls.Add(this.city);
-            this.Controls.Add(this.stadtnamenEingabe);
+            this.Controls.Add(this.TBCity);
             this.Controls.Add(this.colorBarFiller);
-            this.Controls.Add(this.searchRegion);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tempratureBar);
             this.Controls.Add(this.thermometer);
+            this.DoubleBuffered = true;
             this.Name = "WeatherService";
             this.Text = "Weather Service";
             ((System.ComponentModel.ISupportInitialize)(this.thermometer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempratureBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorBarFiller)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,20 +307,22 @@ namespace WeatherServices
 
         private System.Windows.Forms.PictureBox thermometer;
         private System.Windows.Forms.PictureBox tempratureBar;
-        private System.Windows.Forms.Button searchRegion;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.PictureBox colorBarFiller;
-        private System.Windows.Forms.TextBox stadtnamenEingabe;
+        private System.Windows.Forms.TextBox TBCity;
         private System.Windows.Forms.Label city;
         private System.Windows.Forms.Label sunrise;
         private System.Windows.Forms.Label pressure;
-        private System.Windows.Forms.Label sunriseTime;
-        private System.Windows.Forms.Label windSpeedValue;
-        private System.Windows.Forms.Label details;
+        private System.Windows.Forms.Label labSunrise;
+        private System.Windows.Forms.Label labWindSpeed;
+        private System.Windows.Forms.Label labDetails;
         private System.Windows.Forms.Label sunset;
-        private System.Windows.Forms.Label condition;
-        private System.Windows.Forms.Label sunsetTime;
+        private System.Windows.Forms.Label labCondition;
+        private System.Windows.Forms.Label labSunset;
         private System.Windows.Forms.Label windSpeed;
-        private System.Windows.Forms.Label pressureValue;
+        private System.Windows.Forms.Label labPressure;
+        private System.Windows.Forms.Label Date;
+        private System.Windows.Forms.PictureBox picIcon;
     }
 }
 
