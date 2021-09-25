@@ -205,7 +205,6 @@ namespace WeatherServices
             this.labCondition.Size = new System.Drawing.Size(110, 29);
             this.labCondition.TabIndex = 13;
             this.labCondition.Text = "Condition";
-            this.labCondition.Click += new System.EventHandler(this.label7_Click);
             // 
             // labSunset
             // 
@@ -292,7 +291,11 @@ namespace WeatherServices
             this.Controls.Add(this.tempratureBar);
             this.Controls.Add(this.thermometer);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "WeatherService";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Weather Service";
             ((System.ComponentModel.ISupportInitialize)(this.thermometer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempratureBar)).EndInit();

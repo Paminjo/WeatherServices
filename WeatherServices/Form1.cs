@@ -25,21 +25,12 @@ namespace WeatherServices
 
         private string APIKey = "a1f1e8e1ec3f72586c9f03df67514782";
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-            int temp = 30;
-            int heightGrowth = (temp + 20) * 6;
-            thermometer.Controls.Add(tempratureBar);
-            tempratureBar.Height = heightGrowth;
-            tempratureBar.Location = new Point(63, 472 - heightGrowth);
-            tempratureBar.BackColor = Color.Transparent;
-            if (temp > 0)
+
+            public void GetThermometer()
             {
-                colorBarFiller.Height = 30;
-                colorBarFiller.Location = new Point(63, 442);
-                colorBarFiller.BackColor = Color.Transparent;
+
             }
-        }
+        
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -62,6 +53,19 @@ namespace WeatherServices
 
                 labWindSpeed.Text = Info.wind.speed.ToString();
                 labPressure.Text = Info.main.pressure.ToString();
+
+                double temp = Info.main.temp-273.15;
+                double heightGrowth = (temp + 20) * 6;
+                thermometer.Controls.Add(tempratureBar);
+                tempratureBar.Height = Convert.ToInt32(heightGrowth);
+                tempratureBar.Location = new Point(63, 472 - Convert.ToInt32(heightGrowth));
+                tempratureBar.BackColor = Color.Transparent;
+                if (temp > 0)
+                {
+                    colorBarFiller.Height = 30;
+                    colorBarFiller.Location = new Point(63, 442);
+                    colorBarFiller.BackColor = Color.Transparent;
+                }
             }
         }
         DateTime ConvertDateTime(long sec)
