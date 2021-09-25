@@ -48,8 +48,8 @@ namespace WeatherServices
                 picIcon.ImageLocation = "https://api.openweathermap.org/img/w/" + Info.weather[0].icon + ".png";
                 labCondition.Text = Info.weather[0].main;
                 labDetails.Text = Info.weather[0].description;
-                labSunset.Text = ConvertDateTime(Info.sys.sunset).ToShortTimeString();
-                labSunrise.Text = ConvertDateTime(Info.sys.sunrise).ToShortTimeString();
+                labSunset.Text = ConvertDateTime(Info.sys.sunset, Info.timezone).ToShortTimeString();
+                labSunrise.Text = ConvertDateTime(Info.sys.sunrise, Info.timezone).ToShortTimeString();
 
                 labWindSpeed.Text = Info.wind.speed.ToString();
                 labPressure.Text = Info.main.pressure.ToString();
@@ -68,10 +68,10 @@ namespace WeatherServices
                 }
             }
         }
-        DateTime ConvertDateTime(long sec)
-        {
-            DateTime day = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc).ToLocalTime();
-            day = day.AddSeconds(sec).ToLocalTime();
+        DateTime ConvertDateTime(long sec, long timezone)
+        {         
+            DateTime day = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            day = day.AddSeconds(sec+timezone);
             return day;
         }
     }

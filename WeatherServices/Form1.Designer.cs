@@ -188,7 +188,7 @@ namespace WeatherServices
             this.sunset.BackColor = System.Drawing.Color.Transparent;
             this.sunset.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sunset.ForeColor = System.Drawing.Color.White;
-            this.sunset.Location = new System.Drawing.Point(568, 313);
+            this.sunset.Location = new System.Drawing.Point(427, 381);
             this.sunset.Name = "sunset";
             this.sunset.Size = new System.Drawing.Size(85, 29);
             this.sunset.TabIndex = 12;
@@ -212,7 +212,7 @@ namespace WeatherServices
             this.labSunset.BackColor = System.Drawing.Color.Transparent;
             this.labSunset.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labSunset.ForeColor = System.Drawing.Color.White;
-            this.labSunset.Location = new System.Drawing.Point(707, 313);
+            this.labSunset.Location = new System.Drawing.Point(566, 381);
             this.labSunset.Name = "labSunset";
             this.labSunset.Size = new System.Drawing.Size(51, 29);
             this.labSunset.TabIndex = 14;
