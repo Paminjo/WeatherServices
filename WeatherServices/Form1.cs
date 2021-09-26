@@ -52,12 +52,10 @@ namespace WeatherServices
 
                 ActualTimeInSerachedRegion.Text = ConvertDateTime(Info.dt, Info.timezone).ToLongTimeString();
                 
-                labWindSpeed.Text = Info.wind.speed.ToString();
-                labPressure.Text = Info.main.pressure.ToString();
+                labWindSpeed.Text = Info.wind.speed.ToString() +" mph";
+                labPressure.Text = Info.main.pressure.ToString() + " mb";
 
-                ChangeTempInThermometer(Info.main.temp);
-
-                
+                ChangeTempInThermometer(Info.main.temp);              
             }
         }
         
@@ -102,9 +100,9 @@ namespace WeatherServices
         private void timer1_Tick(object sender, EventArgs e)
         {
             TimeOnSystem.Text = DateTime.Now.ToLongTimeString();
-            if(ActualTimeInSerachedRegion.Text != "N/A")
+            if(TimeOnSystem.Text == "00:00:00")
             {
-                ActualTimeInSerachedRegion.Text = Convert.ToDateTime(ActualTimeInSerachedRegion.Text).AddSeconds(1).ToShortTimeString();
+                DateOnSystem.Text = DateTime.Now.ToShortDateString();
             }
         }
     }

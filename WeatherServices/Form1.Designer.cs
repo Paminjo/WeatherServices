@@ -53,7 +53,7 @@ namespace WeatherServices
             this.picIcon = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.DateOnSystem = new System.Windows.Forms.Label();
-            this.Time = new System.Windows.Forms.Label();
+            this.LastUpdate = new System.Windows.Forms.Label();
             this.ActualTimeInSerachedRegion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.thermometer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempratureBar)).BeginInit();
@@ -274,7 +274,7 @@ namespace WeatherServices
             // 
             // timer1
             // 
-            this.timer1.Interval = 1000;
+            this.timer1.Interval = 200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // DateOnSystem
@@ -289,17 +289,17 @@ namespace WeatherServices
             this.DateOnSystem.TabIndex = 19;
             this.DateOnSystem.Text = "DD:MM:YY";
             // 
-            // Time
+            // LastUpdate
             // 
-            this.Time.AutoSize = true;
-            this.Time.BackColor = System.Drawing.Color.Transparent;
-            this.Time.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Time.ForeColor = System.Drawing.Color.White;
-            this.Time.Location = new System.Drawing.Point(549, 272);
-            this.Time.Name = "Time";
-            this.Time.Size = new System.Drawing.Size(68, 29);
-            this.Time.TabIndex = 20;
-            this.Time.Text = "Time:";
+            this.LastUpdate.AutoSize = true;
+            this.LastUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.LastUpdate.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastUpdate.ForeColor = System.Drawing.Color.White;
+            this.LastUpdate.Location = new System.Drawing.Point(549, 272);
+            this.LastUpdate.Name = "LastUpdate";
+            this.LastUpdate.Size = new System.Drawing.Size(134, 29);
+            this.LastUpdate.TabIndex = 20;
+            this.LastUpdate.Text = "Last update:";
             // 
             // ActualTimeInSerachedRegion
             // 
@@ -321,7 +321,7 @@ namespace WeatherServices
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(838, 515);
             this.Controls.Add(this.ActualTimeInSerachedRegion);
-            this.Controls.Add(this.Time);
+            this.Controls.Add(this.LastUpdate);
             this.Controls.Add(this.DateOnSystem);
             this.Controls.Add(this.picIcon);
             this.Controls.Add(this.TimeOnSystem);
@@ -379,7 +379,7 @@ namespace WeatherServices
         private System.Windows.Forms.PictureBox picIcon;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label DateOnSystem;
-        private System.Windows.Forms.Label Time;
+        private System.Windows.Forms.Label LastUpdate;
         private System.Windows.Forms.Label ActualTimeInSerachedRegion;
     }
 }
