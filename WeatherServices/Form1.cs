@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.Net;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WeatherServices
@@ -25,40 +26,71 @@ namespace WeatherServices
             DateOnSystem.Text = DateTime.Now.ToShortDateString();
             timer1.Start();
         }
+
         private string APIKey = "a1f1e8e1ec3f72586c9f03df67514782";
 
-        public void GetThermometer()
+        private async void btnSearch_Click(object sender, EventArgs e)
         {
+            await this.GetWeather();
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private async Task GetWeather()
         {
-            GetWeather();
-        }
+            await  Task.Delay(5000);
 
-        private void GetWeather()
-        {
-            using (WebClient web = new WebClient())
+            try
             {
                 string url = string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}", TBCity.Text, APIKey);
-                var json = web.DownloadString(url);
-                WeatherInfo.root Info = JsonConvert.DeserializeObject<WeatherInfo.root>(json);
-
-                picIcon.ImageLocation = "https://api.openweathermap.org/img/w/" + Info.weather[0].icon + ".png";
+                WeatherInfo.root Info = JsonConvert.DeserializeObject<WeatherInfo.root>(await GetJsonAsync(url));
+                
+                picIcon.ImageLocation = await GetWeatherIconAsync(Info.weather[0].icon);
                 labCondition.Text = Info.weather[0].main;
                 labDetails.Text = Info.weather[0].description;
                 labSunset.Text = ConvertDateTime(Info.sys.sunset, Info.timezone).ToShortTimeString();
                 labSunrise.Text = ConvertDateTime(Info.sys.sunrise, Info.timezone).ToShortTimeString();
 
                 ActualTimeInSerachedRegion.Text = ConvertDateTime(Info.dt, Info.timezone).ToLongTimeString();
-                
-                labWindSpeed.Text = Info.wind.speed.ToString() +" mph";
-                labPressure.Text = Info.main.pressure.ToString() + " mb";
 
-                ChangeTempInThermometer(Info.main.temp);              
+                labWindSpeed.Text = Info.wind.speed.ToString() + " mph";
+                labPressure.Text = Info.main.pressure.ToString() + " mb";
+                ChangeTempInThermometer(Info.main.temp);
+            }
+            catch (WebException e)
+            {
+                MessageBox.Show(Convert.ToString(e));
             }
         }
-        
+
+
+        private async void UpdateWeatherServiceAsync(WeatherInfo.root Info)
+        {
+            picIcon.ImageLocation = await GetWeatherIconAsync(Info.weather[0].icon);
+            labCondition.Text = Info.weather[0].main;
+            labDetails.Text = Info.weather[0].description;
+            labSunset.Text = ConvertDateTime(Info.sys.sunset, Info.timezone).ToShortTimeString();
+            labSunrise.Text = ConvertDateTime(Info.sys.sunrise, Info.timezone).ToShortTimeString();
+
+            ActualTimeInSerachedRegion.Text = ConvertDateTime(Info.dt, Info.timezone).ToLongTimeString();
+
+            labWindSpeed.Text = Info.wind.speed.ToString() + " mph";
+            labPressure.Text = Info.main.pressure.ToString() + " mb";
+            ChangeTempInThermometer(Info.main.temp);
+        }
+
+        private async Task<string> GetJsonAsync(string url)
+        {
+            using (WebClient web = new WebClient())
+            {
+                var json = web.DownloadString(url);
+                return json;
+            }
+        }
+
+        private async Task<string> GetWeatherIconAsync(string iconString)
+        {
+            string icon = "https://api.openweathermap.org/img/w/" + iconString + ".png";
+            return icon;
+        }
 
         private void ChangeTempInThermometer(double temp)
         {
@@ -83,24 +115,22 @@ namespace WeatherServices
             return day;
         }
 
-        private void TBCity_KeyDown(object sender, KeyEventArgs e)
+        private async void TBCity_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                    GetWeather();                
+                await GetWeather();
             }
-           
         }
 
         private void TimeOnSystem_Click(object sender, EventArgs e)
         {
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             TimeOnSystem.Text = DateTime.Now.ToLongTimeString();
-            if(TimeOnSystem.Text == "00:00:00")
+            if (TimeOnSystem.Text == "00:00:00")
             {
                 DateOnSystem.Text = DateTime.Now.ToShortDateString();
             }
