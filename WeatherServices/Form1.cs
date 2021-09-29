@@ -36,8 +36,6 @@ namespace WeatherServices
 
         private async Task GetWeather()
         {
-            await  Task.Delay(5000);
-
             try
             {
                 string url = string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}", TBCity.Text, APIKey);
@@ -61,27 +59,11 @@ namespace WeatherServices
             }
         }
 
-
-        private async void UpdateWeatherServiceAsync(WeatherInfo.root Info)
-        {
-            picIcon.ImageLocation = await GetWeatherIconAsync(Info.weather[0].icon);
-            labCondition.Text = Info.weather[0].main;
-            labDetails.Text = Info.weather[0].description;
-            labSunset.Text = ConvertDateTime(Info.sys.sunset, Info.timezone).ToShortTimeString();
-            labSunrise.Text = ConvertDateTime(Info.sys.sunrise, Info.timezone).ToShortTimeString();
-
-            ActualTimeInSerachedRegion.Text = ConvertDateTime(Info.dt, Info.timezone).ToLongTimeString();
-
-            labWindSpeed.Text = Info.wind.speed.ToString() + " mph";
-            labPressure.Text = Info.main.pressure.ToString() + " mb";
-            ChangeTempInThermometer(Info.main.temp);
-        }
-
         private async Task<string> GetJsonAsync(string url)
         {
             using (WebClient web = new WebClient())
             {
-                var json = web.DownloadString(url);
+                var json = await web.DownloadStringTaskAsync(url);
                 return json;
             }
         }
@@ -127,7 +109,7 @@ namespace WeatherServices
         {
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private async void timer1_Tick(object sender, EventArgs e)
         {
             TimeOnSystem.Text = DateTime.Now.ToLongTimeString();
             if (TimeOnSystem.Text == "00:00:00")
