@@ -36,13 +36,11 @@ namespace WeatherServices
 
         private async Task GetWeather()
         {
-            await  Task.Delay(5000);
-
             try
             {
                 string url = string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}", TBCity.Text, APIKey);
                 WeatherInfo.root Info = JsonConvert.DeserializeObject<WeatherInfo.root>(await GetJsonAsync(url));
-                
+
                 picIcon.ImageLocation = await GetWeatherIconAsync(Info.weather[0].icon);
                 labCondition.Text = Info.weather[0].main;
                 labDetails.Text = Info.weather[0].description;
@@ -60,7 +58,6 @@ namespace WeatherServices
                 MessageBox.Show(Convert.ToString(e));
             }
         }
-
 
         private async void UpdateWeatherServiceAsync(WeatherInfo.root Info)
         {
@@ -81,7 +78,7 @@ namespace WeatherServices
         {
             using (WebClient web = new WebClient())
             {
-                var json = web.DownloadString(url);
+                var json = await web.DownloadStringTaskAsync(url);
                 return json;
             }
         }
