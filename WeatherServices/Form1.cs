@@ -48,6 +48,9 @@ namespace WeatherServices
                 labSunrise.Text = ConvertDateTime(Info.sys.sunrise, Info.timezone).ToShortTimeString();
 
                 ActualTimeInSerachedRegion.Text = ConvertDateTime(Info.dt, Info.timezone).ToLongTimeString();
+                
+                labWindSpeed.Text = Info.wind.speed.ToString();
+                labPressure.Text = Info.main.pressure.ToString();
 
                 labWindSpeed.Text = Info.wind.speed.ToString() + " mph";
                 labPressure.Text = Info.main.pressure.ToString() + " mb";
