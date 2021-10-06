@@ -55,6 +55,7 @@ namespace WeatherServices
             this.DateOnSystem = new System.Windows.Forms.Label();
             this.LastUpdate = new System.Windows.Forms.Label();
             this.ActualTimeInSerachedRegion = new System.Windows.Forms.Label();
+            this.OpenWeatherForecast = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.thermometer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempratureBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorBarFiller)).BeginInit();
@@ -91,7 +92,7 @@ namespace WeatherServices
             this.btnSearch.ForeColor = System.Drawing.Color.Black;
             this.btnSearch.Location = new System.Drawing.Point(695, 62);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(90, 31);
+            this.btnSearch.Size = new System.Drawing.Size(131, 34);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -313,6 +314,20 @@ namespace WeatherServices
             this.ActualTimeInSerachedRegion.TabIndex = 21;
             this.ActualTimeInSerachedRegion.Text = "N/A";
             // 
+            // OpenWeatherForecast
+            // 
+            this.OpenWeatherForecast.BackColor = System.Drawing.Color.White;
+            this.OpenWeatherForecast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OpenWeatherForecast.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpenWeatherForecast.ForeColor = System.Drawing.Color.Black;
+            this.OpenWeatherForecast.Location = new System.Drawing.Point(667, 469);
+            this.OpenWeatherForecast.Name = "OpenWeatherForecast";
+            this.OpenWeatherForecast.Size = new System.Drawing.Size(159, 34);
+            this.OpenWeatherForecast.TabIndex = 22;
+            this.OpenWeatherForecast.Text = "5 day overview";
+            this.OpenWeatherForecast.UseVisualStyleBackColor = false;
+            this.OpenWeatherForecast.Click += new System.EventHandler(this.OpenWeatherForecast_Click);
+            // 
             // WeatherService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,6 +335,7 @@ namespace WeatherServices
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(838, 515);
+            this.Controls.Add(this.OpenWeatherForecast);
             this.Controls.Add(this.ActualTimeInSerachedRegion);
             this.Controls.Add(this.LastUpdate);
             this.Controls.Add(this.DateOnSystem);
@@ -381,6 +397,7 @@ namespace WeatherServices
         private System.Windows.Forms.Label DateOnSystem;
         private System.Windows.Forms.Label LastUpdate;
         private System.Windows.Forms.Label ActualTimeInSerachedRegion;
+        private System.Windows.Forms.Button OpenWeatherForecast;
     }
 }
 

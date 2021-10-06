@@ -135,5 +135,10 @@ namespace WeatherServices
                 DateOnSystem.Text = DateTime.Now.ToShortDateString();
             }
         }
+
+        private void OpenWeatherForecast_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
