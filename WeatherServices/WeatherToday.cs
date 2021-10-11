@@ -27,7 +27,7 @@ namespace WeatherServices
             timer1.Start();
         }
 
-        private string APIKey = "a1f1e8e1ec3f72586c9f03df67514782";
+        public readonly string APIKey = "a1f1e8e1ec3f72586c9f03df67514782";
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
@@ -48,7 +48,7 @@ namespace WeatherServices
                 labSunrise.Text = ConvertDateTime(Info.sys.sunrise, Info.timezone).ToShortTimeString();
 
                 ActualTimeInSerachedRegion.Text = ConvertDateTime(Info.dt, Info.timezone).ToLongTimeString();
-                
+
                 labWindSpeed.Text = Info.wind.speed.ToString();
                 labPressure.Text = Info.main.pressure.ToString();
 
@@ -138,7 +138,9 @@ namespace WeatherServices
 
         private void OpenWeatherForecast_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            WeatherForecast weatherForecast = new WeatherForecast();
+            weatherForecast.Show();
         }
     }
 }

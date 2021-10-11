@@ -79,6 +79,9 @@ namespace WeatherServices
             this.TempMin_4 = new System.Windows.Forms.Label();
             this.Temp_4 = new System.Windows.Forms.Label();
             this.Date_4 = new System.Windows.Forms.Label();
+            this.city = new System.Windows.Forms.Label();
+            this.TBCity = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_1)).BeginInit();
@@ -90,7 +93,8 @@ namespace WeatherServices
             // 
             this.Date_0.AutoSize = true;
             this.Date_0.Font = new System.Drawing.Font("Calibri", 14F);
-            this.Date_0.Location = new System.Drawing.Point(12, 9);
+            this.Date_0.ForeColor = System.Drawing.Color.White;
+            this.Date_0.Location = new System.Drawing.Point(12, 52);
             this.Date_0.Name = "Date_0";
             this.Date_0.Size = new System.Drawing.Size(121, 23);
             this.Date_0.TabIndex = 0;
@@ -100,7 +104,8 @@ namespace WeatherServices
             // 
             this.Temp_0.AutoSize = true;
             this.Temp_0.Font = new System.Drawing.Font("Calibri", 14F);
-            this.Temp_0.Location = new System.Drawing.Point(12, 160);
+            this.Temp_0.ForeColor = System.Drawing.Color.White;
+            this.Temp_0.Location = new System.Drawing.Point(12, 203);
             this.Temp_0.Name = "Temp_0";
             this.Temp_0.Size = new System.Drawing.Size(104, 23);
             this.Temp_0.TabIndex = 1;
@@ -110,7 +115,8 @@ namespace WeatherServices
             // 
             this.TempMin_0.AutoSize = true;
             this.TempMin_0.Font = new System.Drawing.Font("Calibri", 14F);
-            this.TempMin_0.Location = new System.Drawing.Point(12, 183);
+            this.TempMin_0.ForeColor = System.Drawing.Color.White;
+            this.TempMin_0.Location = new System.Drawing.Point(12, 226);
             this.TempMin_0.Name = "TempMin_0";
             this.TempMin_0.Size = new System.Drawing.Size(138, 23);
             this.TempMin_0.TabIndex = 2;
@@ -120,7 +126,8 @@ namespace WeatherServices
             // 
             this.TempMax_0.AutoSize = true;
             this.TempMax_0.Font = new System.Drawing.Font("Calibri", 14F);
-            this.TempMax_0.Location = new System.Drawing.Point(12, 206);
+            this.TempMax_0.ForeColor = System.Drawing.Color.White;
+            this.TempMax_0.Location = new System.Drawing.Point(12, 249);
             this.TempMax_0.Name = "TempMax_0";
             this.TempMax_0.Size = new System.Drawing.Size(141, 23);
             this.TempMax_0.TabIndex = 3;
@@ -130,7 +137,8 @@ namespace WeatherServices
             // 
             this.Condition_0.AutoSize = true;
             this.Condition_0.Font = new System.Drawing.Font("Calibri", 14F);
-            this.Condition_0.Location = new System.Drawing.Point(12, 114);
+            this.Condition_0.ForeColor = System.Drawing.Color.White;
+            this.Condition_0.Location = new System.Drawing.Point(12, 157);
             this.Condition_0.Name = "Condition_0";
             this.Condition_0.Size = new System.Drawing.Size(85, 23);
             this.Condition_0.TabIndex = 11;
@@ -140,7 +148,8 @@ namespace WeatherServices
             // 
             this.Details_0.AutoSize = true;
             this.Details_0.Font = new System.Drawing.Font("Calibri", 14F);
-            this.Details_0.Location = new System.Drawing.Point(12, 137);
+            this.Details_0.ForeColor = System.Drawing.Color.White;
+            this.Details_0.Location = new System.Drawing.Point(12, 180);
             this.Details_0.Name = "Details_0";
             this.Details_0.Size = new System.Drawing.Size(62, 23);
             this.Details_0.TabIndex = 10;
@@ -148,7 +157,7 @@ namespace WeatherServices
             // 
             // Icon_0
             // 
-            this.Icon_0.Location = new System.Drawing.Point(16, 41);
+            this.Icon_0.Location = new System.Drawing.Point(16, 84);
             this.Icon_0.Name = "Icon_0";
             this.Icon_0.Size = new System.Drawing.Size(134, 70);
             this.Icon_0.TabIndex = 13;
@@ -158,7 +167,8 @@ namespace WeatherServices
             // 
             this.ValueMaxTemp_0.AutoSize = true;
             this.ValueMaxTemp_0.Font = new System.Drawing.Font("Calibri", 14F);
-            this.ValueMaxTemp_0.Location = new System.Drawing.Point(154, 206);
+            this.ValueMaxTemp_0.ForeColor = System.Drawing.Color.White;
+            this.ValueMaxTemp_0.Location = new System.Drawing.Point(154, 249);
             this.ValueMaxTemp_0.Name = "ValueMaxTemp_0";
             this.ValueMaxTemp_0.Size = new System.Drawing.Size(46, 23);
             this.ValueMaxTemp_0.TabIndex = 17;
@@ -168,7 +178,8 @@ namespace WeatherServices
             // 
             this.ValueMinTemp_0.AutoSize = true;
             this.ValueMinTemp_0.Font = new System.Drawing.Font("Calibri", 14F);
-            this.ValueMinTemp_0.Location = new System.Drawing.Point(154, 183);
+            this.ValueMinTemp_0.ForeColor = System.Drawing.Color.White;
+            this.ValueMinTemp_0.Location = new System.Drawing.Point(154, 226);
             this.ValueMinTemp_0.Name = "ValueMinTemp_0";
             this.ValueMinTemp_0.Size = new System.Drawing.Size(46, 23);
             this.ValueMinTemp_0.TabIndex = 16;
@@ -178,7 +189,8 @@ namespace WeatherServices
             // 
             this.ValueTemp_0.AutoSize = true;
             this.ValueTemp_0.Font = new System.Drawing.Font("Calibri", 14F);
-            this.ValueTemp_0.Location = new System.Drawing.Point(154, 160);
+            this.ValueTemp_0.ForeColor = System.Drawing.Color.White;
+            this.ValueTemp_0.Location = new System.Drawing.Point(154, 203);
             this.ValueTemp_0.Name = "ValueTemp_0";
             this.ValueTemp_0.Size = new System.Drawing.Size(46, 23);
             this.ValueTemp_0.TabIndex = 15;
@@ -188,6 +200,7 @@ namespace WeatherServices
             // 
             this.ValueMaxTemp_3.AutoSize = true;
             this.ValueMaxTemp_3.Font = new System.Drawing.Font("Calibri", 14F);
+            this.ValueMaxTemp_3.ForeColor = System.Drawing.Color.White;
             this.ValueMaxTemp_3.Location = new System.Drawing.Point(154, 483);
             this.ValueMaxTemp_3.Name = "ValueMaxTemp_3";
             this.ValueMaxTemp_3.Size = new System.Drawing.Size(46, 23);
@@ -198,6 +211,7 @@ namespace WeatherServices
             // 
             this.ValueMinTemp_3.AutoSize = true;
             this.ValueMinTemp_3.Font = new System.Drawing.Font("Calibri", 14F);
+            this.ValueMinTemp_3.ForeColor = System.Drawing.Color.White;
             this.ValueMinTemp_3.Location = new System.Drawing.Point(154, 460);
             this.ValueMinTemp_3.Name = "ValueMinTemp_3";
             this.ValueMinTemp_3.Size = new System.Drawing.Size(46, 23);
@@ -208,6 +222,7 @@ namespace WeatherServices
             // 
             this.ValueTemp_3.AutoSize = true;
             this.ValueTemp_3.Font = new System.Drawing.Font("Calibri", 14F);
+            this.ValueTemp_3.ForeColor = System.Drawing.Color.White;
             this.ValueTemp_3.Location = new System.Drawing.Point(154, 437);
             this.ValueTemp_3.Name = "ValueTemp_3";
             this.ValueTemp_3.Size = new System.Drawing.Size(46, 23);
@@ -226,6 +241,7 @@ namespace WeatherServices
             // 
             this.Condition_3.AutoSize = true;
             this.Condition_3.Font = new System.Drawing.Font("Calibri", 14F);
+            this.Condition_3.ForeColor = System.Drawing.Color.White;
             this.Condition_3.Location = new System.Drawing.Point(12, 391);
             this.Condition_3.Name = "Condition_3";
             this.Condition_3.Size = new System.Drawing.Size(85, 23);
@@ -236,6 +252,7 @@ namespace WeatherServices
             // 
             this.Details_3.AutoSize = true;
             this.Details_3.Font = new System.Drawing.Font("Calibri", 14F);
+            this.Details_3.ForeColor = System.Drawing.Color.White;
             this.Details_3.Location = new System.Drawing.Point(12, 414);
             this.Details_3.Name = "Details_3";
             this.Details_3.Size = new System.Drawing.Size(62, 23);
@@ -246,6 +263,7 @@ namespace WeatherServices
             // 
             this.TempMax_3.AutoSize = true;
             this.TempMax_3.Font = new System.Drawing.Font("Calibri", 14F);
+            this.TempMax_3.ForeColor = System.Drawing.Color.White;
             this.TempMax_3.Location = new System.Drawing.Point(12, 483);
             this.TempMax_3.Name = "TempMax_3";
             this.TempMax_3.Size = new System.Drawing.Size(141, 23);
@@ -256,6 +274,7 @@ namespace WeatherServices
             // 
             this.TempMin_3.AutoSize = true;
             this.TempMin_3.Font = new System.Drawing.Font("Calibri", 14F);
+            this.TempMin_3.ForeColor = System.Drawing.Color.White;
             this.TempMin_3.Location = new System.Drawing.Point(12, 460);
             this.TempMin_3.Name = "TempMin_3";
             this.TempMin_3.Size = new System.Drawing.Size(138, 23);
@@ -266,6 +285,7 @@ namespace WeatherServices
             // 
             this.Temp_3.AutoSize = true;
             this.Temp_3.Font = new System.Drawing.Font("Calibri", 14F);
+            this.Temp_3.ForeColor = System.Drawing.Color.White;
             this.Temp_3.Location = new System.Drawing.Point(12, 437);
             this.Temp_3.Name = "Temp_3";
             this.Temp_3.Size = new System.Drawing.Size(104, 23);
@@ -276,6 +296,7 @@ namespace WeatherServices
             // 
             this.Date_3.AutoSize = true;
             this.Date_3.Font = new System.Drawing.Font("Calibri", 14F);
+            this.Date_3.ForeColor = System.Drawing.Color.White;
             this.Date_3.Location = new System.Drawing.Point(12, 286);
             this.Date_3.Name = "Date_3";
             this.Date_3.Size = new System.Drawing.Size(121, 23);
@@ -286,7 +307,8 @@ namespace WeatherServices
             // 
             this.ValueMaxTemp_1.AutoSize = true;
             this.ValueMaxTemp_1.Font = new System.Drawing.Font("Calibri", 14F);
-            this.ValueMaxTemp_1.Location = new System.Drawing.Point(484, 206);
+            this.ValueMaxTemp_1.ForeColor = System.Drawing.Color.White;
+            this.ValueMaxTemp_1.Location = new System.Drawing.Point(484, 249);
             this.ValueMaxTemp_1.Name = "ValueMaxTemp_1";
             this.ValueMaxTemp_1.Size = new System.Drawing.Size(46, 23);
             this.ValueMaxTemp_1.TabIndex = 37;
@@ -296,7 +318,8 @@ namespace WeatherServices
             // 
             this.ValueMinTemp_1.AutoSize = true;
             this.ValueMinTemp_1.Font = new System.Drawing.Font("Calibri", 14F);
-            this.ValueMinTemp_1.Location = new System.Drawing.Point(484, 183);
+            this.ValueMinTemp_1.ForeColor = System.Drawing.Color.White;
+            this.ValueMinTemp_1.Location = new System.Drawing.Point(484, 226);
             this.ValueMinTemp_1.Name = "ValueMinTemp_1";
             this.ValueMinTemp_1.Size = new System.Drawing.Size(46, 23);
             this.ValueMinTemp_1.TabIndex = 36;
@@ -306,7 +329,8 @@ namespace WeatherServices
             // 
             this.ValueTemp_1.AutoSize = true;
             this.ValueTemp_1.Font = new System.Drawing.Font("Calibri", 14F);
-            this.ValueTemp_1.Location = new System.Drawing.Point(484, 160);
+            this.ValueTemp_1.ForeColor = System.Drawing.Color.White;
+            this.ValueTemp_1.Location = new System.Drawing.Point(484, 203);
             this.ValueTemp_1.Name = "ValueTemp_1";
             this.ValueTemp_1.Size = new System.Drawing.Size(46, 23);
             this.ValueTemp_1.TabIndex = 35;
@@ -314,7 +338,7 @@ namespace WeatherServices
             // 
             // Icon_1
             // 
-            this.Icon_1.Location = new System.Drawing.Point(346, 41);
+            this.Icon_1.Location = new System.Drawing.Point(346, 84);
             this.Icon_1.Name = "Icon_1";
             this.Icon_1.Size = new System.Drawing.Size(134, 70);
             this.Icon_1.TabIndex = 34;
@@ -324,7 +348,8 @@ namespace WeatherServices
             // 
             this.Condition_1.AutoSize = true;
             this.Condition_1.Font = new System.Drawing.Font("Calibri", 14F);
-            this.Condition_1.Location = new System.Drawing.Point(342, 114);
+            this.Condition_1.ForeColor = System.Drawing.Color.White;
+            this.Condition_1.Location = new System.Drawing.Point(342, 157);
             this.Condition_1.Name = "Condition_1";
             this.Condition_1.Size = new System.Drawing.Size(85, 23);
             this.Condition_1.TabIndex = 33;
@@ -334,7 +359,8 @@ namespace WeatherServices
             // 
             this.Details_1.AutoSize = true;
             this.Details_1.Font = new System.Drawing.Font("Calibri", 14F);
-            this.Details_1.Location = new System.Drawing.Point(342, 137);
+            this.Details_1.ForeColor = System.Drawing.Color.White;
+            this.Details_1.Location = new System.Drawing.Point(342, 180);
             this.Details_1.Name = "Details_1";
             this.Details_1.Size = new System.Drawing.Size(62, 23);
             this.Details_1.TabIndex = 32;
@@ -344,7 +370,8 @@ namespace WeatherServices
             // 
             this.TempMax_1.AutoSize = true;
             this.TempMax_1.Font = new System.Drawing.Font("Calibri", 14F);
-            this.TempMax_1.Location = new System.Drawing.Point(342, 206);
+            this.TempMax_1.ForeColor = System.Drawing.Color.White;
+            this.TempMax_1.Location = new System.Drawing.Point(342, 249);
             this.TempMax_1.Name = "TempMax_1";
             this.TempMax_1.Size = new System.Drawing.Size(141, 23);
             this.TempMax_1.TabIndex = 31;
@@ -354,7 +381,8 @@ namespace WeatherServices
             // 
             this.TempMin_1.AutoSize = true;
             this.TempMin_1.Font = new System.Drawing.Font("Calibri", 14F);
-            this.TempMin_1.Location = new System.Drawing.Point(342, 183);
+            this.TempMin_1.ForeColor = System.Drawing.Color.White;
+            this.TempMin_1.Location = new System.Drawing.Point(342, 226);
             this.TempMin_1.Name = "TempMin_1";
             this.TempMin_1.Size = new System.Drawing.Size(138, 23);
             this.TempMin_1.TabIndex = 30;
@@ -364,7 +392,8 @@ namespace WeatherServices
             // 
             this.Temp_1.AutoSize = true;
             this.Temp_1.Font = new System.Drawing.Font("Calibri", 14F);
-            this.Temp_1.Location = new System.Drawing.Point(342, 160);
+            this.Temp_1.ForeColor = System.Drawing.Color.White;
+            this.Temp_1.Location = new System.Drawing.Point(342, 203);
             this.Temp_1.Name = "Temp_1";
             this.Temp_1.Size = new System.Drawing.Size(104, 23);
             this.Temp_1.TabIndex = 29;
@@ -374,7 +403,8 @@ namespace WeatherServices
             // 
             this.Date_1.AutoSize = true;
             this.Date_1.Font = new System.Drawing.Font("Calibri", 14F);
-            this.Date_1.Location = new System.Drawing.Point(342, 9);
+            this.Date_1.ForeColor = System.Drawing.Color.White;
+            this.Date_1.Location = new System.Drawing.Point(342, 52);
             this.Date_1.Name = "Date_1";
             this.Date_1.Size = new System.Drawing.Size(121, 23);
             this.Date_1.TabIndex = 28;
@@ -384,7 +414,8 @@ namespace WeatherServices
             // 
             this.ValueMaxTemp_2.AutoSize = true;
             this.ValueMaxTemp_2.Font = new System.Drawing.Font("Calibri", 14F);
-            this.ValueMaxTemp_2.Location = new System.Drawing.Point(789, 206);
+            this.ValueMaxTemp_2.ForeColor = System.Drawing.Color.White;
+            this.ValueMaxTemp_2.Location = new System.Drawing.Point(780, 249);
             this.ValueMaxTemp_2.Name = "ValueMaxTemp_2";
             this.ValueMaxTemp_2.Size = new System.Drawing.Size(46, 23);
             this.ValueMaxTemp_2.TabIndex = 47;
@@ -394,7 +425,8 @@ namespace WeatherServices
             // 
             this.ValueMinTemp_2.AutoSize = true;
             this.ValueMinTemp_2.Font = new System.Drawing.Font("Calibri", 14F);
-            this.ValueMinTemp_2.Location = new System.Drawing.Point(789, 183);
+            this.ValueMinTemp_2.ForeColor = System.Drawing.Color.White;
+            this.ValueMinTemp_2.Location = new System.Drawing.Point(780, 226);
             this.ValueMinTemp_2.Name = "ValueMinTemp_2";
             this.ValueMinTemp_2.Size = new System.Drawing.Size(46, 23);
             this.ValueMinTemp_2.TabIndex = 46;
@@ -404,7 +436,8 @@ namespace WeatherServices
             // 
             this.ValueTemp_2.AutoSize = true;
             this.ValueTemp_2.Font = new System.Drawing.Font("Calibri", 14F);
-            this.ValueTemp_2.Location = new System.Drawing.Point(789, 160);
+            this.ValueTemp_2.ForeColor = System.Drawing.Color.White;
+            this.ValueTemp_2.Location = new System.Drawing.Point(780, 203);
             this.ValueTemp_2.Name = "ValueTemp_2";
             this.ValueTemp_2.Size = new System.Drawing.Size(46, 23);
             this.ValueTemp_2.TabIndex = 45;
@@ -412,7 +445,7 @@ namespace WeatherServices
             // 
             // Icon_2
             // 
-            this.Icon_2.Location = new System.Drawing.Point(651, 41);
+            this.Icon_2.Location = new System.Drawing.Point(642, 84);
             this.Icon_2.Name = "Icon_2";
             this.Icon_2.Size = new System.Drawing.Size(134, 70);
             this.Icon_2.TabIndex = 44;
@@ -422,7 +455,8 @@ namespace WeatherServices
             // 
             this.Condition_2.AutoSize = true;
             this.Condition_2.Font = new System.Drawing.Font("Calibri", 14F);
-            this.Condition_2.Location = new System.Drawing.Point(647, 114);
+            this.Condition_2.ForeColor = System.Drawing.Color.White;
+            this.Condition_2.Location = new System.Drawing.Point(638, 157);
             this.Condition_2.Name = "Condition_2";
             this.Condition_2.Size = new System.Drawing.Size(85, 23);
             this.Condition_2.TabIndex = 43;
@@ -432,7 +466,8 @@ namespace WeatherServices
             // 
             this.Details_2.AutoSize = true;
             this.Details_2.Font = new System.Drawing.Font("Calibri", 14F);
-            this.Details_2.Location = new System.Drawing.Point(647, 137);
+            this.Details_2.ForeColor = System.Drawing.Color.White;
+            this.Details_2.Location = new System.Drawing.Point(638, 180);
             this.Details_2.Name = "Details_2";
             this.Details_2.Size = new System.Drawing.Size(62, 23);
             this.Details_2.TabIndex = 42;
@@ -442,7 +477,8 @@ namespace WeatherServices
             // 
             this.TempMax_2.AutoSize = true;
             this.TempMax_2.Font = new System.Drawing.Font("Calibri", 14F);
-            this.TempMax_2.Location = new System.Drawing.Point(647, 206);
+            this.TempMax_2.ForeColor = System.Drawing.Color.White;
+            this.TempMax_2.Location = new System.Drawing.Point(638, 249);
             this.TempMax_2.Name = "TempMax_2";
             this.TempMax_2.Size = new System.Drawing.Size(141, 23);
             this.TempMax_2.TabIndex = 41;
@@ -452,7 +488,8 @@ namespace WeatherServices
             // 
             this.TempMin_2.AutoSize = true;
             this.TempMin_2.Font = new System.Drawing.Font("Calibri", 14F);
-            this.TempMin_2.Location = new System.Drawing.Point(647, 183);
+            this.TempMin_2.ForeColor = System.Drawing.Color.White;
+            this.TempMin_2.Location = new System.Drawing.Point(638, 226);
             this.TempMin_2.Name = "TempMin_2";
             this.TempMin_2.Size = new System.Drawing.Size(138, 23);
             this.TempMin_2.TabIndex = 40;
@@ -462,7 +499,8 @@ namespace WeatherServices
             // 
             this.Temp_2.AutoSize = true;
             this.Temp_2.Font = new System.Drawing.Font("Calibri", 14F);
-            this.Temp_2.Location = new System.Drawing.Point(647, 160);
+            this.Temp_2.ForeColor = System.Drawing.Color.White;
+            this.Temp_2.Location = new System.Drawing.Point(638, 203);
             this.Temp_2.Name = "Temp_2";
             this.Temp_2.Size = new System.Drawing.Size(104, 23);
             this.Temp_2.TabIndex = 39;
@@ -472,7 +510,8 @@ namespace WeatherServices
             // 
             this.Date_2.AutoSize = true;
             this.Date_2.Font = new System.Drawing.Font("Calibri", 14F);
-            this.Date_2.Location = new System.Drawing.Point(647, 9);
+            this.Date_2.ForeColor = System.Drawing.Color.White;
+            this.Date_2.Location = new System.Drawing.Point(638, 52);
             this.Date_2.Name = "Date_2";
             this.Date_2.Size = new System.Drawing.Size(121, 23);
             this.Date_2.TabIndex = 38;
@@ -482,6 +521,7 @@ namespace WeatherServices
             // 
             this.ValueMaxTemp_4.AutoSize = true;
             this.ValueMaxTemp_4.Font = new System.Drawing.Font("Calibri", 14F);
+            this.ValueMaxTemp_4.ForeColor = System.Drawing.Color.White;
             this.ValueMaxTemp_4.Location = new System.Drawing.Point(484, 483);
             this.ValueMaxTemp_4.Name = "ValueMaxTemp_4";
             this.ValueMaxTemp_4.Size = new System.Drawing.Size(46, 23);
@@ -492,6 +532,7 @@ namespace WeatherServices
             // 
             this.ValueMinTemp_4.AutoSize = true;
             this.ValueMinTemp_4.Font = new System.Drawing.Font("Calibri", 14F);
+            this.ValueMinTemp_4.ForeColor = System.Drawing.Color.White;
             this.ValueMinTemp_4.Location = new System.Drawing.Point(484, 460);
             this.ValueMinTemp_4.Name = "ValueMinTemp_4";
             this.ValueMinTemp_4.Size = new System.Drawing.Size(46, 23);
@@ -502,6 +543,7 @@ namespace WeatherServices
             // 
             this.ValueTemp_4.AutoSize = true;
             this.ValueTemp_4.Font = new System.Drawing.Font("Calibri", 14F);
+            this.ValueTemp_4.ForeColor = System.Drawing.Color.White;
             this.ValueTemp_4.Location = new System.Drawing.Point(484, 437);
             this.ValueTemp_4.Name = "ValueTemp_4";
             this.ValueTemp_4.Size = new System.Drawing.Size(46, 23);
@@ -520,6 +562,7 @@ namespace WeatherServices
             // 
             this.Condition_4.AutoSize = true;
             this.Condition_4.Font = new System.Drawing.Font("Calibri", 14F);
+            this.Condition_4.ForeColor = System.Drawing.Color.White;
             this.Condition_4.Location = new System.Drawing.Point(342, 391);
             this.Condition_4.Name = "Condition_4";
             this.Condition_4.Size = new System.Drawing.Size(85, 23);
@@ -530,6 +573,7 @@ namespace WeatherServices
             // 
             this.Details_4.AutoSize = true;
             this.Details_4.Font = new System.Drawing.Font("Calibri", 14F);
+            this.Details_4.ForeColor = System.Drawing.Color.White;
             this.Details_4.Location = new System.Drawing.Point(342, 414);
             this.Details_4.Name = "Details_4";
             this.Details_4.Size = new System.Drawing.Size(62, 23);
@@ -540,6 +584,7 @@ namespace WeatherServices
             // 
             this.TempMax_4.AutoSize = true;
             this.TempMax_4.Font = new System.Drawing.Font("Calibri", 14F);
+            this.TempMax_4.ForeColor = System.Drawing.Color.White;
             this.TempMax_4.Location = new System.Drawing.Point(342, 483);
             this.TempMax_4.Name = "TempMax_4";
             this.TempMax_4.Size = new System.Drawing.Size(141, 23);
@@ -550,6 +595,7 @@ namespace WeatherServices
             // 
             this.TempMin_4.AutoSize = true;
             this.TempMin_4.Font = new System.Drawing.Font("Calibri", 14F);
+            this.TempMin_4.ForeColor = System.Drawing.Color.White;
             this.TempMin_4.Location = new System.Drawing.Point(342, 460);
             this.TempMin_4.Name = "TempMin_4";
             this.TempMin_4.Size = new System.Drawing.Size(138, 23);
@@ -560,6 +606,7 @@ namespace WeatherServices
             // 
             this.Temp_4.AutoSize = true;
             this.Temp_4.Font = new System.Drawing.Font("Calibri", 14F);
+            this.Temp_4.ForeColor = System.Drawing.Color.White;
             this.Temp_4.Location = new System.Drawing.Point(342, 437);
             this.Temp_4.Name = "Temp_4";
             this.Temp_4.Size = new System.Drawing.Size(104, 23);
@@ -570,17 +617,57 @@ namespace WeatherServices
             // 
             this.Date_4.AutoSize = true;
             this.Date_4.Font = new System.Drawing.Font("Calibri", 14F);
+            this.Date_4.ForeColor = System.Drawing.Color.White;
             this.Date_4.Location = new System.Drawing.Point(342, 286);
             this.Date_4.Name = "Date_4";
             this.Date_4.Size = new System.Drawing.Size(121, 23);
             this.Date_4.TabIndex = 48;
             this.Date_4.Text = "DD:MM:YYYYY";
             // 
+            // city
+            // 
+            this.city.AutoSize = true;
+            this.city.BackColor = System.Drawing.Color.Transparent;
+            this.city.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.city.ForeColor = System.Drawing.Color.White;
+            this.city.Location = new System.Drawing.Point(13, 12);
+            this.city.Name = "city";
+            this.city.Size = new System.Drawing.Size(63, 33);
+            this.city.TabIndex = 60;
+            this.city.Text = "City:";
+            // 
+            // TBCity
+            // 
+            this.TBCity.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBCity.Location = new System.Drawing.Point(89, 12);
+            this.TBCity.Name = "TBCity";
+            this.TBCity.Size = new System.Drawing.Size(238, 34);
+            this.TBCity.TabIndex = 59;
+            this.TBCity.TextChanged += new System.EventHandler(this.TBCity_TextChanged);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.Black;
+            this.btnSearch.Location = new System.Drawing.Point(333, 11);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(131, 34);
+            this.btnSearch.TabIndex = 58;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // WeatherForecast
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(838, 515);
+            this.Controls.Add(this.city);
+            this.Controls.Add(this.TBCity);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.ValueMaxTemp_4);
             this.Controls.Add(this.ValueMinTemp_4);
             this.Controls.Add(this.ValueTemp_4);
@@ -695,5 +782,8 @@ namespace WeatherServices
         private System.Windows.Forms.Label TempMin_4;
         private System.Windows.Forms.Label Temp_4;
         private System.Windows.Forms.Label Date_4;
+        private System.Windows.Forms.Label city;
+        private System.Windows.Forms.TextBox TBCity;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
