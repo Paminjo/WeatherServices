@@ -2,7 +2,7 @@
 
 namespace WeatherServices
 {
-    public class WeatherForecastInfo
+    public class FiveDayForecastInfo
     {
         public class list
         {

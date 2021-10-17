@@ -142,5 +142,10 @@ namespace WeatherServices
             WeatherForecast weatherForecast = new WeatherForecast();
             weatherForecast.Show();
         }
+
+        private void WeatherService_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

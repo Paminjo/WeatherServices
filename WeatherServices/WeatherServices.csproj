@@ -49,13 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SixDayForecastInfo.cs" />
     <Compile Include="WeatherForecast.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WeatherForecast.Designer.cs">
       <DependentUpon>WeatherForecast.cs</DependentUpon>
     </Compile>
-    <Compile Include="WeatherForecastInfo.cs" />
+    <Compile Include="FiveDayForecastInfo.cs" />
     <Compile Include="WeatherToday.cs">
       <SubType>Form</SubType>
     </Compile>
