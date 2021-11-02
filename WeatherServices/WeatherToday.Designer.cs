@@ -329,10 +329,6 @@ namespace WeatherServices
             this.OpenWeatherForecast.UseVisualStyleBackColor = false;
             this.OpenWeatherForecast.Click += new System.EventHandler(this.OpenWeatherForecast_Click);
             // 
-            // timer2
-            // 
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
             // WeatherService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

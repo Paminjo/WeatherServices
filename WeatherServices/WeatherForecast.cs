@@ -13,6 +13,9 @@ namespace WeatherServices
             InitializeComponent();
             
         }
+
+       
+
         private double _lat;
         private double _lon;
         private void TBCity_TextChanged(object sender, EventArgs e)
@@ -62,14 +65,23 @@ namespace WeatherServices
             GetForecastData();
         }
 
-        private void WeatherForecast_FormClosed(object sender, FormClosedEventArgs e)
+        private void WeatherForecast_FormClosing(object sender, FormClosingEventArgs e)
         {
             
         }
 
-        private void WeatherForecast_FormClosing(object sender, FormClosingEventArgs e)
+        private void back_Click(object sender, EventArgs e)
         {
-            
+            backToWeatherToday = true;
+        }
+
+        public bool backToWeatherToday { get; set; }
+
+        public bool weatherForecastClosed { get; set; }
+
+        private void WeatherForecast_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            weatherForecastClosed = true;
         }
     }
 }

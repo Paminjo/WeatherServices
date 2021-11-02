@@ -17,7 +17,7 @@ namespace WeatherServices
             tempratureBar.Height = 0;
             tempratureBar.Location = new Point(63, 430);
             tempratureBar.BackColor = Color.Transparent;
-
+            
             thermometer.Controls.Add(colorBarFiller);
             colorBarFiller.Height = 0;
             colorBarFiller.Location = new Point(63, 430);
@@ -26,6 +26,8 @@ namespace WeatherServices
             DateOnSystem.Text = DateTime.Now.ToShortDateString();
             timer1.Start();
         }
+
+        WeatherForecast weatherForecast = new WeatherForecast();
 
         private double lat;
         private double lon;
@@ -132,32 +134,39 @@ namespace WeatherServices
         private void TimeOnSystem_Click(object sender, EventArgs e)
         {
         }
-
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             TimeOnSystem.Text = DateTime.Now.ToLongTimeString();
             if (TimeOnSystem.Text == "00:00:00")
             {
                 DateOnSystem.Text = DateTime.Now.ToShortDateString();
-            }           
+            }
+            if (weatherForecast.backToWeatherToday == true)
+            {
+                weatherForecast.Hide();
+                this.Show();
+            }
+            if(weatherForecast.weatherForecastClosed)
+            {
+                this.Close();
+            }
         }
 
         private void OpenWeatherForecast_Click(object sender, EventArgs e)
         {
             this.Hide();
-            WeatherForecast weatherForecast = new WeatherForecast();
-            if(lat != null && lon != null)
+            weatherForecast.backToWeatherToday = false;
+            if (lat != null && lon != null)
+            { 
                 weatherForecast.GetFirstRequest(lat, lon, TBCity.Text);
+            }              
             weatherForecast.Show();
-            weatherForecast.Activate();
         }
 
         private void WeatherService_Load(object sender, EventArgs e)
         {
 
         }
-
-
-
     }
 }

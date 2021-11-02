@@ -778,6 +778,7 @@ namespace WeatherServices
             this.back.TabIndex = 70;
             this.back.Text = "Back";
             this.back.UseVisualStyleBackColor = false;
+            this.back.Click += new System.EventHandler(this.back_Click);
             // 
             // WeatherForecast
             // 
