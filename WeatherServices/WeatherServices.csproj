@@ -56,7 +56,6 @@
     <Compile Include="WeatherForecast.Designer.cs">
       <DependentUpon>WeatherForecast.cs</DependentUpon>
     </Compile>
-    <Compile Include="FiveDayForecastInfo.cs" />
     <Compile Include="WeatherToday.cs">
       <SubType>Form</SubType>
     </Compile>

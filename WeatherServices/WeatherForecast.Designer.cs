@@ -82,11 +82,22 @@ namespace WeatherServices
             this.city = new System.Windows.Forms.Label();
             this.TBCity = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Date_0
@@ -659,12 +670,131 @@ namespace WeatherServices
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(780, 483);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 23);
+            this.label1.TabIndex = 69;
+            this.label1.Text = "00°C";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(780, 460);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 23);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "00°C";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(780, 437);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 23);
+            this.label3.TabIndex = 67;
+            this.label3.Text = "00°C";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(642, 318);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(134, 70);
+            this.pictureBox1.TabIndex = 66;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(638, 391);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 23);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "Condition";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(638, 414);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 23);
+            this.label5.TabIndex = 64;
+            this.label5.Text = "Details";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(638, 483);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(141, 23);
+            this.label6.TabIndex = 63;
+            this.label6.Text = "Max Temprature:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(638, 460);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(138, 23);
+            this.label7.TabIndex = 62;
+            this.label7.Text = "Min Temprature:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(638, 437);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 23);
+            this.label8.TabIndex = 61;
+            this.label8.Text = "Temprature:";
+            // 
+            // back
+            // 
+            this.back.BackColor = System.Drawing.Color.White;
+            this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.back.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.back.ForeColor = System.Drawing.Color.Black;
+            this.back.Location = new System.Drawing.Point(642, 11);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(131, 34);
+            this.back.TabIndex = 70;
+            this.back.Text = "Back";
+            this.back.UseVisualStyleBackColor = false;
+            // 
             // WeatherForecast
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(838, 515);
+            this.Controls.Add(this.back);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.city);
             this.Controls.Add(this.TBCity);
             this.Controls.Add(this.btnSearch);
@@ -718,13 +848,19 @@ namespace WeatherServices
             this.Controls.Add(this.TempMin_0);
             this.Controls.Add(this.Temp_0);
             this.Controls.Add(this.Date_0);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "WeatherForecast";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WeatherForecast";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WeatherForecast_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WeatherForecast_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.Icon_0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -785,5 +921,15 @@ namespace WeatherServices
         private System.Windows.Forms.Label city;
         private System.Windows.Forms.TextBox TBCity;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button back;
     }
 }

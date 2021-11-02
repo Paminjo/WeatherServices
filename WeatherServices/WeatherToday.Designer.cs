@@ -56,6 +56,7 @@ namespace WeatherServices
             this.LastUpdate = new System.Windows.Forms.Label();
             this.ActualTimeInSerachedRegion = new System.Windows.Forms.Label();
             this.OpenWeatherForecast = new System.Windows.Forms.Button();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.thermometer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempratureBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorBarFiller)).BeginInit();
@@ -328,6 +329,10 @@ namespace WeatherServices
             this.OpenWeatherForecast.UseVisualStyleBackColor = false;
             this.OpenWeatherForecast.Click += new System.EventHandler(this.OpenWeatherForecast_Click);
             // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // WeatherService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,6 +404,7 @@ namespace WeatherServices
         private System.Windows.Forms.Label LastUpdate;
         private System.Windows.Forms.Label ActualTimeInSerachedRegion;
         private System.Windows.Forms.Button OpenWeatherForecast;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 

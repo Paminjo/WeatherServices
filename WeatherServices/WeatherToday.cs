@@ -27,6 +27,9 @@ namespace WeatherServices
             timer1.Start();
         }
 
+        private double lat;
+        private double lon;
+
         public readonly string APIKey = "a1f1e8e1ec3f72586c9f03df67514782";
 
         private async void btnSearch_Click(object sender, EventArgs e)
@@ -40,6 +43,9 @@ namespace WeatherServices
             {
                 string url = string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}", TBCity.Text, APIKey);
                 WeatherInfo.root Info = JsonConvert.DeserializeObject<WeatherInfo.root>(await GetJsonAsync(url));
+
+                lat = Info.coord.lat;
+                lon = Info.coord.lon;
 
                 picIcon.ImageLocation = await GetWeatherIconAsync(Info.weather[0].icon);
                 labCondition.Text = Info.weather[0].main;
@@ -133,19 +139,25 @@ namespace WeatherServices
             if (TimeOnSystem.Text == "00:00:00")
             {
                 DateOnSystem.Text = DateTime.Now.ToShortDateString();
-            }
+            }           
         }
 
         private void OpenWeatherForecast_Click(object sender, EventArgs e)
         {
             this.Hide();
             WeatherForecast weatherForecast = new WeatherForecast();
+            if(lat != null && lon != null)
+                weatherForecast.GetFirstRequest(lat, lon, TBCity.Text);
             weatherForecast.Show();
+            weatherForecast.Activate();
         }
 
         private void WeatherService_Load(object sender, EventArgs e)
         {
 
         }
+
+
+
     }
 }
