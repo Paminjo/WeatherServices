@@ -3,6 +3,7 @@ using System;
 using System.Net;
 using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace WeatherServices
 {
@@ -79,9 +80,16 @@ namespace WeatherServices
 
         public bool weatherForecastClosed { get; set; }
 
+        public object Location { get; set; }
+
         private void WeatherForecast_FormClosed(object sender, FormClosedEventArgs e)
         {
             weatherForecastClosed = true;
+        }
+
+        private void WeatherForecast_LocationChanged(object sender, EventArgs e)
+        {
+            Location = this.DesktopLocation;
         }
     }
 }

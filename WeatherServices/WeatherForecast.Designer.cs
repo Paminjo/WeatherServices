@@ -856,6 +856,7 @@ namespace WeatherServices
             this.Text = "WeatherForecast";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WeatherForecast_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WeatherForecast_FormClosed);
+            this.LocationChanged += new System.EventHandler(this.WeatherForecast_LocationChanged);
             ((System.ComponentModel.ISupportInitialize)(this.Icon_0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_1)).EndInit();

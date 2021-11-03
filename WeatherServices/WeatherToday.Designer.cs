@@ -366,6 +366,7 @@ namespace WeatherServices
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Weather Service";
             this.Load += new System.EventHandler(this.WeatherService_Load);
+            this.LocationChanged += new System.EventHandler(this.WeatherService_LocationChanged);
             ((System.ComponentModel.ISupportInitialize)(this.thermometer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempratureBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorBarFiller)).EndInit();

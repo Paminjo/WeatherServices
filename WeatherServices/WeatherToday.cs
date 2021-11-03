@@ -151,6 +151,10 @@ namespace WeatherServices
             {
                 this.Close();
             }
+            if (this.Hide())
+            {
+                this.Close();
+            }
         }
 
         private void OpenWeatherForecast_Click(object sender, EventArgs e)
@@ -167,6 +171,11 @@ namespace WeatherServices
         private void WeatherService_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void WeatherService_LocationChanged(object sender, EventArgs e)
+        {
+            weatherForecast.DesktopLocation = this.DesktopLocation;
         }
     }
 }
