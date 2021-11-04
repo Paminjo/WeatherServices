@@ -17,14 +17,11 @@ namespace WeatherServices
         private double _lat;
         private double _lon;
 
-        private void TBCity_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         public readonly string APIKey = "a1f1e8e1ec3f72586c9f03df67514782";
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
+
             await this.GetForecastData();
         }
 
@@ -68,10 +65,6 @@ namespace WeatherServices
             _lon = lon;
             TBCity.Text = city;
             await GetForecastData();
-        }
-
-        private void WeatherForecast_FormClosing(object sender, FormClosingEventArgs e)
-        {
         }
 
         private void back_Click(object sender, EventArgs e)

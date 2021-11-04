@@ -654,7 +654,6 @@ namespace WeatherServices
             this.TBCity.Name = "TBCity";
             this.TBCity.Size = new System.Drawing.Size(238, 34);
             this.TBCity.TabIndex = 59;
-            this.TBCity.TextChanged += new System.EventHandler(this.TBCity_TextChanged);
             // 
             // btnSearch
             // 
@@ -854,7 +853,6 @@ namespace WeatherServices
             this.Name = "WeatherForecast";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "WeatherForecast";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WeatherForecast_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WeatherForecast_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.Icon_0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_3)).EndInit();
