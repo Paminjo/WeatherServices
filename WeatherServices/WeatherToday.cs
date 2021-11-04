@@ -31,6 +31,7 @@ namespace WeatherServices
 
         private double lat;
         private double lon;
+        private bool checkWeatherToday = true;        
 
         public readonly string APIKey = "a1f1e8e1ec3f72586c9f03df67514782";
 
@@ -151,9 +152,17 @@ namespace WeatherServices
             {
                 this.Close();
             }
-            if (this.Hide())
+            if (weatherForecast.checkWeatherForecast)
             {
-                this.Close();
+                this.DesktopLocation = weatherForecast.DesktopLocation;
+            }
+            if(checkWeatherToday)
+            {
+                weatherForecast.DesktopLocation = this.DesktopLocation;
+            }
+            if(!weatherForecast.checkWeatherForecast)
+            {
+                checkWeatherToday = true;
             }
         }
 
@@ -164,8 +173,11 @@ namespace WeatherServices
             if (lat != null && lon != null)
             { 
                 weatherForecast.GetFirstRequest(lat, lon, TBCity.Text);
-            }              
+            } 
+            
             weatherForecast.Show();
+            weatherForecast.checkWeatherForecast = true;
+            checkWeatherToday = false;            
         }
 
         private void WeatherService_Load(object sender, EventArgs e)

@@ -15,10 +15,10 @@ namespace WeatherServices
             
         }
 
-       
-
+        public bool checkWeatherForecast = false;    
         private double _lat;
         private double _lon;
+
         private void TBCity_TextChanged(object sender, EventArgs e)
         {
         }
@@ -74,6 +74,7 @@ namespace WeatherServices
         private void back_Click(object sender, EventArgs e)
         {
             backToWeatherToday = true;
+            checkWeatherForecast = false;
         }
 
         public bool backToWeatherToday { get; set; }
