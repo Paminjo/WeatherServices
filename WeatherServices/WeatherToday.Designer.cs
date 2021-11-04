@@ -261,7 +261,6 @@ namespace WeatherServices
             this.TimeOnSystem.Size = new System.Drawing.Size(96, 26);
             this.TimeOnSystem.TabIndex = 17;
             this.TimeOnSystem.Text = "00:00:00";
-            this.TimeOnSystem.Click += new System.EventHandler(this.TimeOnSystem_Click);
             // 
             // picIcon
             // 
@@ -365,7 +364,6 @@ namespace WeatherServices
             this.Name = "WeatherService";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Weather Service";
-            this.Load += new System.EventHandler(this.WeatherService_Load);
             this.LocationChanged += new System.EventHandler(this.WeatherService_LocationChanged);
             ((System.ComponentModel.ISupportInitialize)(this.thermometer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempratureBar)).EndInit();

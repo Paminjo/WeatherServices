@@ -17,7 +17,7 @@ namespace WeatherServices
             tempratureBar.Height = 0;
             tempratureBar.Location = new Point(63, 430);
             tempratureBar.BackColor = Color.Transparent;
-            
+
             thermometer.Controls.Add(colorBarFiller);
             colorBarFiller.Height = 0;
             colorBarFiller.Location = new Point(63, 430);
@@ -27,11 +27,11 @@ namespace WeatherServices
             timer1.Start();
         }
 
-        WeatherForecast weatherForecast = new WeatherForecast();
+        private WeatherForecast weatherForecast = new WeatherForecast();
 
         private double lat;
         private double lon;
-        private bool checkWeatherToday = true;        
+        private bool checkWeatherToday = true;
 
         public readonly string APIKey = "a1f1e8e1ec3f72586c9f03df67514782";
 
@@ -132,10 +132,6 @@ namespace WeatherServices
             }
         }
 
-        private void TimeOnSystem_Click(object sender, EventArgs e)
-        {
-        }
-        
         private void timer1_Tick(object sender, EventArgs e)
         {
             TimeOnSystem.Text = DateTime.Now.ToLongTimeString();
@@ -148,7 +144,7 @@ namespace WeatherServices
                 weatherForecast.Hide();
                 this.Show();
             }
-            if(weatherForecast.weatherForecastClosed)
+            if (weatherForecast.weatherForecastClosed)
             {
                 this.Close();
             }
@@ -156,11 +152,11 @@ namespace WeatherServices
             {
                 this.DesktopLocation = weatherForecast.DesktopLocation;
             }
-            if(checkWeatherToday)
+            if (checkWeatherToday)
             {
                 weatherForecast.DesktopLocation = this.DesktopLocation;
             }
-            if(!weatherForecast.checkWeatherForecast)
+            if (!weatherForecast.checkWeatherForecast)
             {
                 checkWeatherToday = true;
             }
@@ -171,18 +167,13 @@ namespace WeatherServices
             this.Hide();
             weatherForecast.backToWeatherToday = false;
             if (lat != 0 && lon != 0)
-            { 
+            {
                 weatherForecast.GetFirstRequest(lat, lon, TBCity.Text);
-            } 
-            
+            }
+
             weatherForecast.Show();
             weatherForecast.checkWeatherForecast = true;
-            checkWeatherToday = false;            
-        }
-
-        private void WeatherService_Load(object sender, EventArgs e)
-        {
-
+            checkWeatherToday = false;
         }
 
         private void WeatherService_LocationChanged(object sender, EventArgs e)

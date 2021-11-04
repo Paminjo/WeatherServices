@@ -848,6 +848,7 @@ namespace WeatherServices
             this.Controls.Add(this.TempMin_0);
             this.Controls.Add(this.Temp_0);
             this.Controls.Add(this.Date_0);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "WeatherForecast";
