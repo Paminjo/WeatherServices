@@ -58,12 +58,12 @@ namespace WeatherServices
             }
         }
 
-        public void GetFirstRequest(double lat, double lon, string city)
+        public async void GetFirstRequest(double lat, double lon, string city)
         {
             _lat = lat;
             _lon = lon;
             TBCity.Text = city;
-            GetForecastData();
+            await GetForecastData();
         }
 
         private void WeatherForecast_FormClosing(object sender, FormClosingEventArgs e)
@@ -81,16 +81,11 @@ namespace WeatherServices
 
         public bool weatherForecastClosed { get; set; }
 
-        public object Location { get; set; }
+        
 
         private void WeatherForecast_FormClosed(object sender, FormClosedEventArgs e)
         {
             weatherForecastClosed = true;
-        }
-
-        private void WeatherForecast_LocationChanged(object sender, EventArgs e)
-        {
-            Location = this.DesktopLocation;
         }
     }
 }

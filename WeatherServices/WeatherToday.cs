@@ -170,7 +170,7 @@ namespace WeatherServices
         {
             this.Hide();
             weatherForecast.backToWeatherToday = false;
-            if (lat != null && lon != null)
+            if (lat != 0 && lon != 0)
             { 
                 weatherForecast.GetFirstRequest(lat, lon, TBCity.Text);
             } 
