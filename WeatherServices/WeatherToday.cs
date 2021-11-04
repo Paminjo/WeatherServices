@@ -27,13 +27,12 @@ namespace WeatherServices
             timer1.Start();
         }
 
+        private WeatherRequest _weatherRequest = new WeatherRequest();
         private WeatherForecast weatherForecast = new WeatherForecast();
 
         private double lat;
         private double lon;
         private bool checkWeatherToday = true;
-
-        public readonly string APIKey = "a1f1e8e1ec3f72586c9f03df67514782";
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
@@ -43,9 +42,8 @@ namespace WeatherServices
         private async Task GetWeather()
         {
             try
-            {
-                string url = string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}", TBCity.Text, APIKey);
-                WeatherInfo.root Info = JsonConvert.DeserializeObject<WeatherInfo.root>(await GetJsonAsync(url));
+            {               
+                var Info = await _weatherRequest.GetWeather(TBCity.Text);
 
                 lat = Info.coord.lat;
                 lon = Info.coord.lon;
@@ -68,30 +66,6 @@ namespace WeatherServices
             catch (WebException e)
             {
                 MessageBox.Show(Convert.ToString(e));
-            }
-        }
-
-        private async void UpdateWeatherServiceAsync(WeatherInfo.root Info)
-        {
-            picIcon.ImageLocation = await GetWeatherIconAsync(Info.weather[0].icon);
-            labCondition.Text = Info.weather[0].main;
-            labDetails.Text = Info.weather[0].description;
-            labSunset.Text = ConvertDateTime(Info.sys.sunset, Info.timezone).ToShortTimeString();
-            labSunrise.Text = ConvertDateTime(Info.sys.sunrise, Info.timezone).ToShortTimeString();
-
-            ActualTimeInSerachedRegion.Text = ConvertDateTime(Info.dt, Info.timezone).ToLongTimeString();
-
-            labWindSpeed.Text = Info.wind.speed.ToString() + " mph";
-            labPressure.Text = Info.main.pressure.ToString() + " mb";
-            ChangeTempInThermometer(Info.main.temp);
-        }
-
-        private async Task<string> GetJsonAsync(string url)
-        {
-            using (WebClient web = new WebClient())
-            {
-                var json = await web.DownloadStringTaskAsync(url);
-                return json;
             }
         }
 

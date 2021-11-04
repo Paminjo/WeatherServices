@@ -13,6 +13,8 @@ namespace WeatherServices
             InitializeComponent();
         }
 
+        WeatherRequest weatherRequest = new WeatherRequest();
+
         public bool checkWeatherForecast = false;
         private double _lat;
         private double _lon;
@@ -21,8 +23,20 @@ namespace WeatherServices
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
+            await GetRequestData();
+        }
+        
+        private async Task GetRequestData()
+        {
+            try
+            { 
+                var weatherToday = await weatherRequest.GetWeather(TBCity.Text);
+            }
+            catch(WebException webEx)
+            {
 
-            await this.GetForecastData();
+            }
+            
         }
 
         private async Task GetForecastData()
@@ -59,10 +73,15 @@ namespace WeatherServices
             }
         }
 
-        public async void GetFirstRequest(double lat, double lon, string city)
+        public void SetLatLon(double lat, double lon)
         {
             _lat = lat;
             _lon = lon;
+        }
+
+        public async void GetFirstRequest(double lat, double lon, string city)
+        {
+            SetLatLon(lat,lon);
             TBCity.Text = city;
             await GetForecastData();
         }
