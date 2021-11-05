@@ -79,7 +79,6 @@ namespace WeatherServices
             this.TempMin_4 = new System.Windows.Forms.Label();
             this.Temp_4 = new System.Windows.Forms.Label();
             this.Date_4 = new System.Windows.Forms.Label();
-            this.city = new System.Windows.Forms.Label();
             this.TBCity = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -92,6 +91,7 @@ namespace WeatherServices
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.back = new System.Windows.Forms.Button();
+            this.lblCity = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_1)).BeginInit();
@@ -635,22 +635,10 @@ namespace WeatherServices
             this.Date_4.TabIndex = 48;
             this.Date_4.Text = "DD:MM:YYYYY";
             // 
-            // city
-            // 
-            this.city.AutoSize = true;
-            this.city.BackColor = System.Drawing.Color.Transparent;
-            this.city.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.city.ForeColor = System.Drawing.Color.White;
-            this.city.Location = new System.Drawing.Point(13, 12);
-            this.city.Name = "city";
-            this.city.Size = new System.Drawing.Size(63, 33);
-            this.city.TabIndex = 60;
-            this.city.Text = "City:";
-            // 
             // TBCity
             // 
             this.TBCity.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBCity.Location = new System.Drawing.Point(89, 12);
+            this.TBCity.Location = new System.Drawing.Point(86, 9);
             this.TBCity.Name = "TBCity";
             this.TBCity.Size = new System.Drawing.Size(238, 34);
             this.TBCity.TabIndex = 59;
@@ -661,7 +649,7 @@ namespace WeatherServices
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.Black;
-            this.btnSearch.Location = new System.Drawing.Point(333, 11);
+            this.btnSearch.Location = new System.Drawing.Point(332, 9);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(131, 34);
             this.btnSearch.TabIndex = 58;
@@ -771,7 +759,7 @@ namespace WeatherServices
             this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.back.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.back.ForeColor = System.Drawing.Color.Black;
-            this.back.Location = new System.Drawing.Point(642, 11);
+            this.back.Location = new System.Drawing.Point(695, 9);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(131, 34);
             this.back.TabIndex = 70;
@@ -779,11 +767,23 @@ namespace WeatherServices
             this.back.UseVisualStyleBackColor = false;
             this.back.Click += new System.EventHandler(this.back_Click);
             // 
+            // lblCity
+            // 
+            this.lblCity.AutoSize = true;
+            this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCity.ForeColor = System.Drawing.Color.White;
+            this.lblCity.Location = new System.Drawing.Point(10, 9);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Size = new System.Drawing.Size(70, 31);
+            this.lblCity.TabIndex = 71;
+            this.lblCity.Text = "City:";
+            // 
             // WeatherForecast
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(838, 515);
+            this.Controls.Add(this.lblCity);
             this.Controls.Add(this.back);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -794,7 +794,6 @@ namespace WeatherServices
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.city);
             this.Controls.Add(this.TBCity);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.ValueMaxTemp_4);
@@ -930,5 +929,6 @@ namespace WeatherServices
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button back;
+        private System.Windows.Forms.Label lblCity;
     }
 }

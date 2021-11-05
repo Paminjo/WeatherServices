@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Net;
 using System.Threading.Tasks;
@@ -30,9 +29,9 @@ namespace WeatherServices
         private WeatherRequest _weatherRequest = new WeatherRequest();
         private WeatherForecast weatherForecast = new WeatherForecast();
 
-        private double lat;
-        private double lon;
-        private bool checkWeatherToday = true;
+        private double _lat;
+        private double _lon;
+        private bool _checkWeatherToday = true;
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
@@ -42,11 +41,11 @@ namespace WeatherServices
         private async Task GetWeather()
         {
             try
-            {               
-                var Info = await _weatherRequest.GetWeather(TBCity.Text);
+            {
+                var Info = await _weatherRequest.GetWeatherToday(TBCity.Text);
 
-                lat = Info.coord.lat;
-                lon = Info.coord.lon;
+                _lat = Info.coord.lat;
+                _lon = Info.coord.lon;
 
                 picIcon.ImageLocation = await GetWeatherIconAsync(Info.weather[0].icon);
                 labCondition.Text = Info.weather[0].main;
@@ -106,7 +105,7 @@ namespace WeatherServices
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private async void timer1_Tick(object sender, EventArgs e)
         {
             TimeOnSystem.Text = DateTime.Now.ToLongTimeString();
             if (TimeOnSystem.Text == "00:00:00")
@@ -115,6 +114,7 @@ namespace WeatherServices
             }
             if (weatherForecast.backToWeatherToday == true)
             {
+                await GetWeather();// Fehler: 24/7 abfrage
                 weatherForecast.Hide();
                 this.Show();
             }
@@ -126,13 +126,17 @@ namespace WeatherServices
             {
                 this.DesktopLocation = weatherForecast.DesktopLocation;
             }
-            if (checkWeatherToday)
+            if (_checkWeatherToday)
             {
                 weatherForecast.DesktopLocation = this.DesktopLocation;
             }
             if (!weatherForecast.checkWeatherForecast)
             {
-                checkWeatherToday = true;
+                _checkWeatherToday = true;
+            }
+            if(TBCity.Text != weatherForecast.cityName && weatherForecast.cityName != "")
+            {
+                TBCity.Text = weatherForecast.cityName;
             }
         }
 
@@ -140,14 +144,14 @@ namespace WeatherServices
         {
             this.Hide();
             weatherForecast.backToWeatherToday = false;
-            if (lat != 0 && lon != 0)
+            if (_lat != 0 && _lon != 0)
             {
-                weatherForecast.GetFirstRequest(lat, lon, TBCity.Text);
+                weatherForecast.GetFirstRequestForWeatherForecast(_lat, _lon, TBCity.Text);
             }
 
             weatherForecast.Show();
             weatherForecast.checkWeatherForecast = true;
-            checkWeatherToday = false;
+            _checkWeatherToday = false;
         }
 
         private void WeatherService_LocationChanged(object sender, EventArgs e)
