@@ -84,9 +84,9 @@ namespace WeatherServices
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.Icon_5 = new System.Windows.Forms.PictureBox();
+            this.Condition_5 = new System.Windows.Forms.Label();
+            this.Details_5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -97,7 +97,7 @@ namespace WeatherServices
             ((System.ComponentModel.ISupportInitialize)(this.Icon_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Icon_5)).BeginInit();
             this.SuspendLayout();
             // 
             // Date_0
@@ -690,35 +690,35 @@ namespace WeatherServices
             this.label3.TabIndex = 67;
             this.label3.Text = "00°C";
             // 
-            // pictureBox1
+            // Icon_5
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(642, 318);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(134, 70);
-            this.pictureBox1.TabIndex = 66;
-            this.pictureBox1.TabStop = false;
+            this.Icon_5.Location = new System.Drawing.Point(642, 318);
+            this.Icon_5.Name = "Icon_5";
+            this.Icon_5.Size = new System.Drawing.Size(134, 70);
+            this.Icon_5.TabIndex = 66;
+            this.Icon_5.TabStop = false;
             // 
-            // label4
+            // Condition_5
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(638, 391);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 23);
-            this.label4.TabIndex = 65;
-            this.label4.Text = "Condition";
+            this.Condition_5.AutoSize = true;
+            this.Condition_5.Font = new System.Drawing.Font("Calibri", 14F);
+            this.Condition_5.ForeColor = System.Drawing.Color.White;
+            this.Condition_5.Location = new System.Drawing.Point(638, 391);
+            this.Condition_5.Name = "Condition_5";
+            this.Condition_5.Size = new System.Drawing.Size(85, 23);
+            this.Condition_5.TabIndex = 65;
+            this.Condition_5.Text = "Condition";
             // 
-            // label5
+            // Details_5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 14F);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(638, 414);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 23);
-            this.label5.TabIndex = 64;
-            this.label5.Text = "Details";
+            this.Details_5.AutoSize = true;
+            this.Details_5.Font = new System.Drawing.Font("Calibri", 14F);
+            this.Details_5.ForeColor = System.Drawing.Color.White;
+            this.Details_5.Location = new System.Drawing.Point(638, 414);
+            this.Details_5.Name = "Details_5";
+            this.Details_5.Size = new System.Drawing.Size(62, 23);
+            this.Details_5.TabIndex = 64;
+            this.Details_5.Text = "Details";
             // 
             // label6
             // 
@@ -788,9 +788,9 @@ namespace WeatherServices
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.Icon_5);
+            this.Controls.Add(this.Condition_5);
+            this.Controls.Add(this.Details_5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
@@ -858,7 +858,7 @@ namespace WeatherServices
             ((System.ComponentModel.ISupportInitialize)(this.Icon_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Icon_5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -922,9 +922,9 @@ namespace WeatherServices
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox Icon_5;
+        private System.Windows.Forms.Label Condition_5;
+        private System.Windows.Forms.Label Details_5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

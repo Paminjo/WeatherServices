@@ -16,6 +16,8 @@ namespace WeatherServices
 
         public bool checkWeatherForecast = false;
         public string cityName = "";
+        public double lat { get; set; }
+        public double lon { get; set; }
 
         public readonly string APIKey = "a1f1e8e1ec3f72586c9f03df67514782";
 
@@ -30,6 +32,8 @@ namespace WeatherServices
             {
                 var weatherToday = await weatherRequest.GetWeatherToday(TBCity.Text);
                 cityName = TBCity.Text;
+                lat = weatherToday.coord.lat;
+                lon = weatherToday.coord.lon;
                 weatherRequest.SetLatLon(weatherToday.coord.lat, weatherToday.coord.lon);
                 await GetWeatherForecastData();
             }

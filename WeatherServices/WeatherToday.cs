@@ -114,7 +114,11 @@ namespace WeatherServices
             }
             if (weatherForecast.backToWeatherToday == true)
             {
-                await GetWeather();// Fehler: 24/7 abfrage
+                if(_lat != weatherForecast.lat && _lon != weatherForecast.lon)
+                {
+                    await GetWeather();
+                }
+
                 weatherForecast.Hide();
                 this.Show();
             }
