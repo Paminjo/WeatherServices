@@ -93,6 +93,13 @@ namespace WeatherServices
             this.back = new System.Windows.Forms.Button();
             this.lblCity = new System.Windows.Forms.Label();
             this.Date_5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_1 = new System.Windows.Forms.Label();
+            this.ValueMaxWeekTemp = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_3 = new System.Windows.Forms.Label();
+            this.ValueMinWeekTemp = new System.Windows.Forms.Label();
+            this.ValueAvgWeekTemp = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Icon_1)).BeginInit();
@@ -119,9 +126,9 @@ namespace WeatherServices
             this.Temp_0.ForeColor = System.Drawing.Color.White;
             this.Temp_0.Location = new System.Drawing.Point(12, 203);
             this.Temp_0.Name = "Temp_0";
-            this.Temp_0.Size = new System.Drawing.Size(137, 23);
+            this.Temp_0.Size = new System.Drawing.Size(146, 23);
             this.Temp_0.TabIndex = 1;
-            this.Temp_0.Text = "Avg Temprature:";
+            this.Temp_0.Text = "Avg Temperature:";
             // 
             // TempMin_0
             // 
@@ -130,9 +137,9 @@ namespace WeatherServices
             this.TempMin_0.ForeColor = System.Drawing.Color.White;
             this.TempMin_0.Location = new System.Drawing.Point(12, 226);
             this.TempMin_0.Name = "TempMin_0";
-            this.TempMin_0.Size = new System.Drawing.Size(138, 23);
+            this.TempMin_0.Size = new System.Drawing.Size(147, 23);
             this.TempMin_0.TabIndex = 2;
-            this.TempMin_0.Text = "Min Temprature:";
+            this.TempMin_0.Text = "Min Temperature:";
             // 
             // TempMax_0
             // 
@@ -141,9 +148,9 @@ namespace WeatherServices
             this.TempMax_0.ForeColor = System.Drawing.Color.White;
             this.TempMax_0.Location = new System.Drawing.Point(12, 249);
             this.TempMax_0.Name = "TempMax_0";
-            this.TempMax_0.Size = new System.Drawing.Size(141, 23);
+            this.TempMax_0.Size = new System.Drawing.Size(150, 23);
             this.TempMax_0.TabIndex = 3;
-            this.TempMax_0.Text = "Max Temprature:";
+            this.TempMax_0.Text = "Max Temperature:";
             // 
             // Condition_0
             // 
@@ -278,9 +285,9 @@ namespace WeatherServices
             this.TempMax_3.ForeColor = System.Drawing.Color.White;
             this.TempMax_3.Location = new System.Drawing.Point(12, 483);
             this.TempMax_3.Name = "TempMax_3";
-            this.TempMax_3.Size = new System.Drawing.Size(141, 23);
+            this.TempMax_3.Size = new System.Drawing.Size(150, 23);
             this.TempMax_3.TabIndex = 21;
-            this.TempMax_3.Text = "Max Temprature:";
+            this.TempMax_3.Text = "Max Temperature:";
             // 
             // TempMin_3
             // 
@@ -289,9 +296,9 @@ namespace WeatherServices
             this.TempMin_3.ForeColor = System.Drawing.Color.White;
             this.TempMin_3.Location = new System.Drawing.Point(12, 460);
             this.TempMin_3.Name = "TempMin_3";
-            this.TempMin_3.Size = new System.Drawing.Size(138, 23);
+            this.TempMin_3.Size = new System.Drawing.Size(147, 23);
             this.TempMin_3.TabIndex = 20;
-            this.TempMin_3.Text = "Min Temprature:";
+            this.TempMin_3.Text = "Min Temperature:";
             // 
             // Temp_3
             // 
@@ -300,9 +307,9 @@ namespace WeatherServices
             this.Temp_3.ForeColor = System.Drawing.Color.White;
             this.Temp_3.Location = new System.Drawing.Point(12, 437);
             this.Temp_3.Name = "Temp_3";
-            this.Temp_3.Size = new System.Drawing.Size(137, 23);
+            this.Temp_3.Size = new System.Drawing.Size(146, 23);
             this.Temp_3.TabIndex = 19;
-            this.Temp_3.Text = "Avg Temprature:";
+            this.Temp_3.Text = "Avg Temperature:";
             // 
             // Date_3
             // 
@@ -385,9 +392,9 @@ namespace WeatherServices
             this.TempMax_1.ForeColor = System.Drawing.Color.White;
             this.TempMax_1.Location = new System.Drawing.Point(328, 249);
             this.TempMax_1.Name = "TempMax_1";
-            this.TempMax_1.Size = new System.Drawing.Size(141, 23);
+            this.TempMax_1.Size = new System.Drawing.Size(150, 23);
             this.TempMax_1.TabIndex = 31;
-            this.TempMax_1.Text = "Max Temprature:";
+            this.TempMax_1.Text = "Max Temperature:";
             // 
             // TempMin_1
             // 
@@ -396,9 +403,9 @@ namespace WeatherServices
             this.TempMin_1.ForeColor = System.Drawing.Color.White;
             this.TempMin_1.Location = new System.Drawing.Point(328, 226);
             this.TempMin_1.Name = "TempMin_1";
-            this.TempMin_1.Size = new System.Drawing.Size(138, 23);
+            this.TempMin_1.Size = new System.Drawing.Size(147, 23);
             this.TempMin_1.TabIndex = 30;
-            this.TempMin_1.Text = "Min Temprature:";
+            this.TempMin_1.Text = "Min Temperature:";
             // 
             // Temp_1
             // 
@@ -407,9 +414,9 @@ namespace WeatherServices
             this.Temp_1.ForeColor = System.Drawing.Color.White;
             this.Temp_1.Location = new System.Drawing.Point(328, 203);
             this.Temp_1.Name = "Temp_1";
-            this.Temp_1.Size = new System.Drawing.Size(137, 23);
+            this.Temp_1.Size = new System.Drawing.Size(146, 23);
             this.Temp_1.TabIndex = 29;
-            this.Temp_1.Text = "Avg Temprature:";
+            this.Temp_1.Text = "Avg Temperature:";
             // 
             // Date_1
             // 
@@ -492,9 +499,9 @@ namespace WeatherServices
             this.TempMax_2.ForeColor = System.Drawing.Color.White;
             this.TempMax_2.Location = new System.Drawing.Point(618, 249);
             this.TempMax_2.Name = "TempMax_2";
-            this.TempMax_2.Size = new System.Drawing.Size(141, 23);
+            this.TempMax_2.Size = new System.Drawing.Size(150, 23);
             this.TempMax_2.TabIndex = 41;
-            this.TempMax_2.Text = "Max Temprature:";
+            this.TempMax_2.Text = "Max Temperature:";
             // 
             // TempMin_2
             // 
@@ -503,9 +510,9 @@ namespace WeatherServices
             this.TempMin_2.ForeColor = System.Drawing.Color.White;
             this.TempMin_2.Location = new System.Drawing.Point(618, 226);
             this.TempMin_2.Name = "TempMin_2";
-            this.TempMin_2.Size = new System.Drawing.Size(138, 23);
+            this.TempMin_2.Size = new System.Drawing.Size(147, 23);
             this.TempMin_2.TabIndex = 40;
-            this.TempMin_2.Text = "Min Temprature:";
+            this.TempMin_2.Text = "Min Temperature:";
             // 
             // Temp_2
             // 
@@ -514,9 +521,9 @@ namespace WeatherServices
             this.Temp_2.ForeColor = System.Drawing.Color.White;
             this.Temp_2.Location = new System.Drawing.Point(618, 203);
             this.Temp_2.Name = "Temp_2";
-            this.Temp_2.Size = new System.Drawing.Size(137, 23);
+            this.Temp_2.Size = new System.Drawing.Size(146, 23);
             this.Temp_2.TabIndex = 39;
-            this.Temp_2.Text = "Avg Temprature:";
+            this.Temp_2.Text = "Avg Temperature:";
             // 
             // Date_2
             // 
@@ -599,9 +606,9 @@ namespace WeatherServices
             this.TempMax_4.ForeColor = System.Drawing.Color.White;
             this.TempMax_4.Location = new System.Drawing.Point(328, 483);
             this.TempMax_4.Name = "TempMax_4";
-            this.TempMax_4.Size = new System.Drawing.Size(141, 23);
+            this.TempMax_4.Size = new System.Drawing.Size(150, 23);
             this.TempMax_4.TabIndex = 51;
-            this.TempMax_4.Text = "Max Temprature:";
+            this.TempMax_4.Text = "Max Temperature:";
             // 
             // TempMin_4
             // 
@@ -610,9 +617,9 @@ namespace WeatherServices
             this.TempMin_4.ForeColor = System.Drawing.Color.White;
             this.TempMin_4.Location = new System.Drawing.Point(328, 460);
             this.TempMin_4.Name = "TempMin_4";
-            this.TempMin_4.Size = new System.Drawing.Size(138, 23);
+            this.TempMin_4.Size = new System.Drawing.Size(147, 23);
             this.TempMin_4.TabIndex = 50;
-            this.TempMin_4.Text = "Min Temprature:";
+            this.TempMin_4.Text = "Min Temperature:";
             // 
             // Temp_4
             // 
@@ -621,9 +628,9 @@ namespace WeatherServices
             this.Temp_4.ForeColor = System.Drawing.Color.White;
             this.Temp_4.Location = new System.Drawing.Point(328, 437);
             this.Temp_4.Name = "Temp_4";
-            this.Temp_4.Size = new System.Drawing.Size(137, 23);
+            this.Temp_4.Size = new System.Drawing.Size(146, 23);
             this.Temp_4.TabIndex = 49;
-            this.Temp_4.Text = "Avg Temprature:";
+            this.Temp_4.Text = "Avg Temperature:";
             // 
             // Date_4
             // 
@@ -643,6 +650,7 @@ namespace WeatherServices
             this.TBCity.Name = "TBCity";
             this.TBCity.Size = new System.Drawing.Size(238, 34);
             this.TBCity.TabIndex = 59;
+            this.TBCity.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TBCity_KeyDown);
             // 
             // btnSearch
             // 
@@ -728,9 +736,9 @@ namespace WeatherServices
             this.TempMax_5.ForeColor = System.Drawing.Color.White;
             this.TempMax_5.Location = new System.Drawing.Point(618, 483);
             this.TempMax_5.Name = "TempMax_5";
-            this.TempMax_5.Size = new System.Drawing.Size(141, 23);
+            this.TempMax_5.Size = new System.Drawing.Size(150, 23);
             this.TempMax_5.TabIndex = 63;
-            this.TempMax_5.Text = "Max Temprature:";
+            this.TempMax_5.Text = "Max Temperature:";
             // 
             // TempMin_5
             // 
@@ -739,9 +747,9 @@ namespace WeatherServices
             this.TempMin_5.ForeColor = System.Drawing.Color.White;
             this.TempMin_5.Location = new System.Drawing.Point(618, 460);
             this.TempMin_5.Name = "TempMin_5";
-            this.TempMin_5.Size = new System.Drawing.Size(138, 23);
+            this.TempMin_5.Size = new System.Drawing.Size(147, 23);
             this.TempMin_5.TabIndex = 62;
-            this.TempMin_5.Text = "Min Temprature:";
+            this.TempMin_5.Text = "Min Temperature:";
             // 
             // Temp_5
             // 
@@ -750,9 +758,9 @@ namespace WeatherServices
             this.Temp_5.ForeColor = System.Drawing.Color.White;
             this.Temp_5.Location = new System.Drawing.Point(618, 437);
             this.Temp_5.Name = "Temp_5";
-            this.Temp_5.Size = new System.Drawing.Size(137, 23);
+            this.Temp_5.Size = new System.Drawing.Size(146, 23);
             this.Temp_5.TabIndex = 61;
-            this.Temp_5.Text = "Avg Temprature:";
+            this.Temp_5.Text = "Avg Temperature:";
             // 
             // back
             // 
@@ -790,11 +798,95 @@ namespace WeatherServices
             this.Date_5.TabIndex = 72;
             this.Date_5.Text = "DD:MM:YYYYY";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 506);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(811, 13);
+            this.label1.TabIndex = 73;
+            this.label1.Text = "_________________________________________________________________________________" +
+    "_____________________________________________________";
+            // 
+            // lbl_1
+            // 
+            this.lbl_1.AutoSize = true;
+            this.lbl_1.Font = new System.Drawing.Font("Calibri", 14F);
+            this.lbl_1.ForeColor = System.Drawing.Color.White;
+            this.lbl_1.Location = new System.Drawing.Point(12, 529);
+            this.lbl_1.Name = "lbl_1";
+            this.lbl_1.Size = new System.Drawing.Size(153, 23);
+            this.lbl_1.TabIndex = 74;
+            this.lbl_1.Text = "Max Weeks Temp.:";
+            // 
+            // ValueMaxWeekTemp
+            // 
+            this.ValueMaxWeekTemp.AutoSize = true;
+            this.ValueMaxWeekTemp.Font = new System.Drawing.Font("Calibri", 14F);
+            this.ValueMaxWeekTemp.ForeColor = System.Drawing.Color.White;
+            this.ValueMaxWeekTemp.Location = new System.Drawing.Point(171, 529);
+            this.ValueMaxWeekTemp.Name = "ValueMaxWeekTemp";
+            this.ValueMaxWeekTemp.Size = new System.Drawing.Size(46, 23);
+            this.ValueMaxWeekTemp.TabIndex = 75;
+            this.ValueMaxWeekTemp.Text = "00°C";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 14F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(316, 529);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(150, 23);
+            this.label3.TabIndex = 76;
+            this.label3.Text = "Min Weeks Temp.:";
+            // 
+            // lbl_3
+            // 
+            this.lbl_3.AutoSize = true;
+            this.lbl_3.Font = new System.Drawing.Font("Calibri", 14F);
+            this.lbl_3.ForeColor = System.Drawing.Color.White;
+            this.lbl_3.Location = new System.Drawing.Point(607, 529);
+            this.lbl_3.Name = "lbl_3";
+            this.lbl_3.Size = new System.Drawing.Size(149, 23);
+            this.lbl_3.TabIndex = 77;
+            this.lbl_3.Text = "Avg Weeks Temp.:";
+            // 
+            // ValueMinWeekTemp
+            // 
+            this.ValueMinWeekTemp.AutoSize = true;
+            this.ValueMinWeekTemp.Font = new System.Drawing.Font("Calibri", 14F);
+            this.ValueMinWeekTemp.ForeColor = System.Drawing.Color.White;
+            this.ValueMinWeekTemp.Location = new System.Drawing.Point(472, 529);
+            this.ValueMinWeekTemp.Name = "ValueMinWeekTemp";
+            this.ValueMinWeekTemp.Size = new System.Drawing.Size(46, 23);
+            this.ValueMinWeekTemp.TabIndex = 78;
+            this.ValueMinWeekTemp.Text = "00°C";
+            // 
+            // ValueAvgWeekTemp
+            // 
+            this.ValueAvgWeekTemp.AutoSize = true;
+            this.ValueAvgWeekTemp.Font = new System.Drawing.Font("Calibri", 14F);
+            this.ValueAvgWeekTemp.ForeColor = System.Drawing.Color.White;
+            this.ValueAvgWeekTemp.Location = new System.Drawing.Point(762, 529);
+            this.ValueAvgWeekTemp.Name = "ValueAvgWeekTemp";
+            this.ValueAvgWeekTemp.Size = new System.Drawing.Size(46, 23);
+            this.ValueAvgWeekTemp.TabIndex = 79;
+            this.ValueAvgWeekTemp.Text = "00°C";
+            // 
             // WeatherForecast
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(838, 515);
+            this.ClientSize = new System.Drawing.Size(838, 561);
+            this.Controls.Add(this.ValueAvgWeekTemp);
+            this.Controls.Add(this.ValueMinWeekTemp);
+            this.Controls.Add(this.lbl_3);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ValueMaxWeekTemp);
+            this.Controls.Add(this.lbl_1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Date_5);
             this.Controls.Add(this.lblCity);
             this.Controls.Add(this.back);
@@ -944,5 +1036,12 @@ namespace WeatherServices
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.Label lblCity;
         private System.Windows.Forms.Label Date_5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_1;
+        private System.Windows.Forms.Label ValueMaxWeekTemp;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_3;
+        private System.Windows.Forms.Label ValueMinWeekTemp;
+        private System.Windows.Forms.Label ValueAvgWeekTemp;
     }
 }

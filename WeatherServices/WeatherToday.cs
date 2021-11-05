@@ -53,9 +53,9 @@ namespace WeatherServices
                 labSunset.Text = ConvertDateTime(Info.sys.sunset, Info.timezone).ToShortTimeString();
                 labSunrise.Text = ConvertDateTime(Info.sys.sunrise, Info.timezone).ToShortTimeString();
 
-                temp_Max.Text = Convert.ToString(Info.main.temp_max - 273.15);
-                temp_Min.Text = Convert.ToString(Info.main.temp_min - 273.15);
-                ActualTemp.Text = Convert.ToString(Info.main.temp - 273.15);
+                temp_Max.Text = Convert.ToString(Math.Round(Info.main.temp_max - 273.15, 2)) + "°C";
+                temp_Min.Text = Convert.ToString(Math.Round(Info.main.temp_min - 273.15, 2)) + "°C";
+                ActualTemp.Text = Convert.ToString(Math.Round(Info.main.temp - 273.15, 2)) + "°C";
                 labWindSpeed.Text = Info.wind.speed.ToString();
                 labPressure.Text = Info.main.pressure.ToString();
 
@@ -115,7 +115,7 @@ namespace WeatherServices
             }
             if (weatherForecast.backToWeatherToday == true)
             {
-                if(_lat != weatherForecast.lat && _lon != weatherForecast.lon)
+                if (_lat != weatherForecast.lat && _lon != weatherForecast.lon)
                 {
                     await GetWeather();
                 }
@@ -139,7 +139,8 @@ namespace WeatherServices
             {
                 _checkWeatherToday = true;
             }
-            if(TBCity.Text != weatherForecast.cityName && weatherForecast.cityName != "")
+            if (TBCity.Text != weatherForecast.cityName && weatherForecast.cityName != ""
+                && weatherForecast.backToWeatherToday == false)
             {
                 TBCity.Text = weatherForecast.cityName;
             }

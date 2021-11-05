@@ -54,15 +54,34 @@ namespace WeatherServices
                 var TempMinLabels = new Label[] { ValueMinTemp_0, ValueMinTemp_1, ValueMinTemp_2, ValueMinTemp_3, ValueMinTemp_4, ValueMinTemp_5 };
                 var TempMaxLabels = new Label[] { ValueMaxTemp_0, ValueMaxTemp_1, ValueMaxTemp_2, ValueMaxTemp_3, ValueMaxTemp_4, ValueMaxTemp_5 };
 
+                double maxTemp = -200;
+                double minTemp = 200;
+                double avgTemp = 0;
                 for (int i = 0; i <= 5; i++)
                 {
                     DateTime day = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
                     DateTimeLabels[i].Text = day.AddSeconds(Info.daily[i].dt).ToShortDateString();
-                    TempMinLabels[i].Text = Convert.ToString(Info.daily[i].temp.min + " °C");
-                    TempMaxLabels[i].Text = Convert.ToString(Info.daily[i].temp.max + " °C");
-                    TempLabels[i].Text = Convert.ToString((Info.daily[i].temp.min + Info.daily[i].temp.max) / 2);
+                    TempMinLabels[i].Text = Convert.ToString(Info.daily[i].temp.min + "°C");
+                    TempMaxLabels[i].Text = Convert.ToString(Info.daily[i].temp.max + "°C");
+                    TempLabels[i].Text = Convert.ToString(Math.Round((Info.daily[i].temp.min + Info.daily[i].temp.max) / 2, 2)) + "°C";
                     IconPictureBoxes[i].ImageLocation = "https://api.openweathermap.org/img/w/" + Info.daily[i].weather[0].icon + ".png";
+
+                    avgTemp += Info.daily[i].temp.min + Info.daily[i].temp.max;
+
+                    if (maxTemp < Info.daily[i].temp.max)
+                    {
+                        maxTemp = Info.daily[i].temp.max;
+                    }
+                    if (minTemp > Info.daily[i].temp.min)
+                    {
+                        minTemp = Info.daily[i].temp.min;
+                    }
                 }
+                avgTemp /= 6;
+
+                ValueAvgWeekTemp.Text = Convert.ToString(Math.Round(avgTemp, 2)) + "°C";
+                ValueMaxWeekTemp.Text = Convert.ToString(maxTemp) + "°C";
+                ValueMinWeekTemp.Text = Convert.ToString(minTemp) + "°C";
             }
             catch (WebException webEx)
             {
@@ -90,6 +109,14 @@ namespace WeatherServices
         private void WeatherForecast_FormClosed(object sender, FormClosedEventArgs e)
         {
             weatherForecastClosed = true;
+        }
+
+        private async void TBCity_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                await GetRequestData();
+            }
         }
     }
 }
