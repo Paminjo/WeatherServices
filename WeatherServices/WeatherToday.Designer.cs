@@ -60,6 +60,7 @@ namespace WeatherServices
             this.temp_Min = new System.Windows.Forms.Label();
             this.lbl_ActualTemp = new System.Windows.Forms.Label();
             this.ActualTemp = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.thermometer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempratureBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colorBarFiller)).BeginInit();
@@ -379,6 +380,10 @@ namespace WeatherServices
             this.ActualTemp.TabIndex = 26;
             this.ActualTemp.Text = "N/A";
             // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // WeatherService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,6 +463,7 @@ namespace WeatherServices
         private System.Windows.Forms.Label temp_Min;
         private System.Windows.Forms.Label lbl_ActualTemp;
         private System.Windows.Forms.Label ActualTemp;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 

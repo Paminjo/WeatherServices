@@ -24,6 +24,7 @@ namespace WeatherServices
 
             DateOnSystem.Text = DateTime.Now.ToShortDateString();
             timer1.Start();
+            timer2.Start();
         }
 
         private WeatherRequest _weatherRequest = new WeatherRequest();
@@ -113,37 +114,7 @@ namespace WeatherServices
             {
                 DateOnSystem.Text = DateTime.Now.ToShortDateString();
             }
-            if (weatherForecast.backToWeatherToday == true)
-            {
-                if (_lat != weatherForecast.lat && _lon != weatherForecast.lon)
-                {
-                    await GetWeather();
-                }
 
-                weatherForecast.Hide();
-                this.Show();
-            }
-            if (weatherForecast.weatherForecastClosed)
-            {
-                this.Close();
-            }
-            if (weatherForecast.checkWeatherForecast)
-            {
-                this.DesktopLocation = weatherForecast.DesktopLocation;
-            }
-            if (_checkWeatherToday)
-            {
-                weatherForecast.DesktopLocation = this.DesktopLocation;
-            }
-            if (!weatherForecast.checkWeatherForecast)
-            {
-                _checkWeatherToday = true;
-            }
-            if (TBCity.Text != weatherForecast.cityName && weatherForecast.cityName != ""
-                && weatherForecast.backToWeatherToday == false)
-            {
-                TBCity.Text = weatherForecast.cityName;
-            }
         }
 
         private void OpenWeatherForecast_Click(object sender, EventArgs e)
@@ -163,6 +134,43 @@ namespace WeatherServices
         private void WeatherService_LocationChanged(object sender, EventArgs e)
         {
             weatherForecast.DesktopLocation = this.DesktopLocation;
+        }
+
+        private async void timer2_Tick(object sender, EventArgs e)
+        {
+            if (TBCity.Text != weatherForecast.cityName && weatherForecast.cityName != ""
+                    && weatherForecast.backToWeatherToday == false )
+            {
+                TBCity.Text = weatherForecast.cityName;
+                
+            } 
+            if (weatherForecast.backToWeatherToday == true)
+            {
+                if (_lat != weatherForecast.lat && _lon != weatherForecast.lon && weatherForecast.gotBack == 'y')
+                {
+                    await GetWeather();
+                    weatherForecast.gotBack = 'n';
+                }
+                weatherForecast.Hide();
+                this.Show();
+            }
+            if (weatherForecast.weatherForecastClosed)
+            {
+                this.Close();
+            }
+            if (weatherForecast.checkWeatherForecast)
+            {
+                this.DesktopLocation = weatherForecast.DesktopLocation;
+            }
+            if (_checkWeatherToday)
+            {
+                weatherForecast.DesktopLocation = this.DesktopLocation;
+            }
+            if (!weatherForecast.checkWeatherForecast)
+            {
+                _checkWeatherToday = true;
+            }
+
         }
     }
 }
