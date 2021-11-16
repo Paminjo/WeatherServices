@@ -66,7 +66,7 @@ namespace WeatherServices
                     TempLabels[i].Text = Convert.ToString(Math.Round((Info.daily[i].temp.min + Info.daily[i].temp.max) / 2, 2)) + "°C";
                     IconPictureBoxes[i].ImageLocation = "https://api.openweathermap.org/img/w/" + Info.daily[i].weather[0].icon + ".png";
 
-                    avgTemp += Info.daily[i].temp.min + Info.daily[i].temp.max;
+                    avgTemp += (Info.daily[i].temp.min + Info.daily[i].temp.max)/2;
 
                     if (maxTemp < Info.daily[i].temp.max)
                     {
