@@ -62,8 +62,6 @@ namespace WeatherServices
                 // Array erstellungen für einfachere Handhabung, wird nach Anwendung gemillt
                 var DateTimeLabels = new Label[] { Date_0, Date_1, Date_2, Date_3, Date_4, Date_5 }; 
                 var IconPictureBoxes = new PictureBox[] { Icon_0, Icon_1, Icon_2, Icon_3, Icon_4, Icon_5 };
-                var ConditionLabels = new Label[] { Condition_0, Condition_1, Condition_2, Condition_3, Condition_4, Condition_5 };
-                var DetailsLabels = new Label[] { Details_0, Details_1, Details_2, Details_3, Details_4, Details_5 };
                 var TempLabels = new Label[] { ValueTemp_0, ValueTemp_1, ValueTemp_2, ValueTemp_3, ValueTemp_4, ValueTemp_5 };
                 var TempMinLabels = new Label[] { ValueMinTemp_0, ValueMinTemp_1, ValueMinTemp_2, ValueMinTemp_3, ValueMinTemp_4, ValueMinTemp_5 };
                 var TempMaxLabels = new Label[] { ValueMaxTemp_0, ValueMaxTemp_1, ValueMaxTemp_2, ValueMaxTemp_3, ValueMaxTemp_4, ValueMaxTemp_5 };
